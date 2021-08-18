@@ -1,0 +1,15 @@
+.xds-ome-page-style{
+    display: flex;
+    grid-template-areas: "row1" "row2";
+    row-gap: 300px;
+    
+}
+
+#row1{
+    grid-area: row1;
+   
+}
+#row2{
+    grid-area: row2;
+    padding-top: 300px;
+}

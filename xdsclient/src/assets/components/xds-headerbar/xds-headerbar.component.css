@@ -1,4 +1,12 @@
-ul {
+.xds-nave-bar{
+  background-color: grey;
+  margin-top: -10px;
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+}
+
+/* ul {
     list-style-type: none;
     margin: 0;
     padding: 0px 100px;
@@ -27,4 +35,4 @@ ul {
   .active {
     background-color: black;
     color:white;
-  }
+  } */

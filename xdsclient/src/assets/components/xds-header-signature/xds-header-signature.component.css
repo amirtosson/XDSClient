@@ -1,0 +1,42 @@
+.xds-header-signature-style{
+    height: 5%;
+    width: 99%;
+    background-color:rgba(255, 255, 255, 0.74);
+    border-bottom: blue solid 5px;
+    margin: 10px;
+}
+
+.xds-container-signature-style{
+    display: grid;
+    grid-template-areas:"sp sp" "im search" "im2 social" ;
+    grid-template-columns:50% 50% ;
+    grid-template-rows:50px 100px 50px ;
+}
+
+.box{
+    display:flex;
+    justify-content:center;
+    background-color: rgba(128, 128, 128, 0);
+    border: 2px solid rgb(3, 2, 2);
+    color: rgb(10, 8, 8);
+}
+
+#one{ 
+    grid-area:im; 
+    width: 100%;
+  }
+
+#two{ 
+    grid-area:search;
+    max-height: 50px;
+    border: 3px solid black;
+
+  }
+
+#three{ 
+    grid-area:im2;
+  }
+
+#four{ 
+    grid-area:social;
+  }

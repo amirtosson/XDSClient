@@ -12,4 +12,8 @@ export class XdsToolBoxComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  cc(){
+    console.log("!!!");
+  }
+
 }

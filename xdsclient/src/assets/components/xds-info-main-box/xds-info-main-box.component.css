@@ -1,0 +1,21 @@
+.xds-info-main-box-style{
+display: grid;
+grid-template-columns: 20% 20% 60%;
+grid-template-areas: "toolBox subMenu details";
+background-color: transparent;
+}
+
+#tool-box{
+    grid-area: toolBox;
+    background-color: transparent;
+}
+
+#sub-menu{
+    grid-area: subMenu;
+    background-color: rgb(124, 151, 124);
+}
+
+#details-box{
+    grid-area: details;
+    background-color: green;
+}
