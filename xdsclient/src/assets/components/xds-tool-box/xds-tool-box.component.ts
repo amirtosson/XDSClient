@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-xds-tool-box',
@@ -7,13 +7,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class XdsToolBoxComponent implements OnInit {
 
+  @Output() xdsActiveButton = new EventEmitter<number>();
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  cc(){
-    console.log("!!!");
+  WelcomeIsClicked(){
+    this.xdsActiveButton.emit(1);
+  }
+
+  SignInUpIsClicked(){
+    this.xdsActiveButton.emit(2);
+  }
+  UploadIsClicked(){
+    this.xdsActiveButton.emit(3);
+  }
+  DownloadIsClicked(){
+    this.xdsActiveButton.emit(4);
+  }
+  AnalyzeIsClicked(){
+    this.xdsActiveButton.emit(5);
+  }
+  KnowHowIsClicked(){
+    this.xdsActiveButton.emit(6);
   }
 
 }

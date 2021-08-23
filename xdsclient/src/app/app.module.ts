@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { MaterialModule } from './Models/materials.models';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { HttpClientModule } from '@angular/common/http';
 
 // Components
 import { AppRoutingModule } from './app-routing.module';
@@ -41,6 +41,7 @@ import { XdsFooterSignatureComponent } from '../assets/components/xds-footer-sig
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     MaterialModule
   ],
   providers: [],
