@@ -33,13 +33,16 @@ export class LoginPageComponent implements OnInit {
     };
 
 
-  this.http.post("http://localhost:5000/login",requestOptions ).subscribe(
-    data => {
-     console.log(data);
-  }
-  )
+  // this.http.post("http://localhost:5000/login",requestOptions ).subscribe(
+  //   data => {
+  //    console.log(data);
+  // }
+  //)
 
 
   }
-
+  onTextChange(){
+    var x = document.getElementById("username-input") as HTMLInputElement;
+    console.log( x.value.toString())
+  }
 }
