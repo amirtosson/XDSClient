@@ -19,3 +19,20 @@ background-color: transparent;
     grid-area: details;
     background-color: green;
 }
+
+  
+.tabcontentsub button{
+    width:100%;
+    background-color: rgb(124, 151, 124);
+    cursor: pointer;
+    border:none;
+}
+
+.tabcontentsub button:focus{
+    background-color: green;
+}
+
+.tabcontentsub button:hover{
+    background-color: green;
+}
+  

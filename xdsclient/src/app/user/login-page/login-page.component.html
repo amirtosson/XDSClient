@@ -1,12 +1,11 @@
                 
 <html lang="en">
-    <head>
-        <!-- ===== link to font-awsom icons cloud ===== -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    </head>
-    <body> 
-        <div class="container h-100">
-            <div class="d-flex justify-content-center h-100">
+    <body >
+       
+    
+    
+        <div class="container">
+            <div class="d-flex justify-content-center ">
                 <div class="user_card">
                     <div class="d-flex justify-content-center form_container">
     
@@ -18,15 +17,17 @@
                             </div>
                             <br>
                             <div class="input-group mb-3">
-                                    <span class="input-group-text"><i class="fa fa-x fa-user"></i>
-                                    </span>
-                                    <input type="text" id="loginname" placeholder="loginname">
+                                <div class="input-group-append">
+                                    
+                                    <span class="input-group-text"><i class="fa fa-at"></i></span>
+                                    <input type="text" id="username-input" placeholder="medrepoPlaceHolder">
+                                </div>
                             </div>
                             <div class="input-group mb-2">
-                                    <span class="input-group-text">
-                                        <i class=" fa fa-x fa-unlock-alt"></i>
-                                    </span>
-                                    <input type="password" id="password" placeholder="password">
+                                <div class="input-group-append">
+                                    <span class="input-group-text"><i class=" fa fa-unlock-alt"></i></span>
+                                    <input type="text"  placeholder="medrepoPlaceHolder">
+                                </div>
                             </div>
                             <div class="form-group">
                                 <div class="custom-control custom-checkbox" >
@@ -34,13 +35,12 @@
                                     <label class="custom-control-label" for="customControlInline">Remember me</label>
                                 </div>
                             </div>
-                                <div class="d-flex justify-content-center mt-3 login_container">
-                                    
-                                </div>
+                              
                         </form>
                     </div>
-                    <button id="signin-btn"> Sign in</button>
-
+                    <div class="d-flex justify-content-center mt-3 login_container">
+                        <button (click)="onTextChange()" > Sign in</button>
+                    </div>
                     <div class="mt-4">
                         <div class="d-flex justify-content-center links">
                             Don't have an account? <a routerLink="/signup"class="ml-2">Sign Up</a>

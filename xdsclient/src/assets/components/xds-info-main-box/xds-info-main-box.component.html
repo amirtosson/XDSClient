@@ -2,41 +2,80 @@
 
 <div class="xds-info-main-box-style">
     <app-xds-tool-box id="tool-box" (click)="ToolBoxIsClicked()" (xdsActiveButton)="buttonId=$event"></app-xds-tool-box>
-    <div id="sub-menu">
-      <div id="1" class="tabcontent">
-          <h3>Welcome</h3>
-          <p>Welcome to X-ray data science cloud. This aims to gather all datasets in one cloud.</p>
-          <a routerLink="/login" class="btn btn-primary">Go somewhere</a>
-      </div>
+    
+    <div id="sub-menu">xds-info-main-box works!
+        <div id="welcome" class="tabcontentsub">
+            <h3>welcom</h3>
+            <p>welcomis the capital city of England.</p>
+          </div>
 
-      <div id="2" class="tabcontent">
-        <h3>SignIn/Up</h3>
-        <p>Login to your accout or create a new one.</p>
-      </div>
+          <div id="signinup" class="tabcontentsub">
+            <div >
+              <button (click)="SignInClicked()" >If you have an account so Sign in</button>
+            </div>
+            <div >
+              <button (click)="SignUpClicked()" >If you have no account, you might need to sign up</button>
+            </div>
+          </div>
           
-      <div id="3" class="tabcontent">
-        <h3>Upload</h3>
-        <p>Tokyo is the capital of Japan.</p>
+          
+      <div id="upload" class="tabcontentsub">
+        <h3>upload</h3>
+        <p>upload is the capital of Japan.</p>
       </div>
-      
-      <div id="4" class="tabcontent">
-        <h3>Download</h3>
-        <p>Tokyo is the capital of Japan.</p>
-      </div>
-            
-      <div id="5" class="tabcontent">
-        <h3>Analyze</h3>
-        <p>Tokyo is the capital of Japan.</p>
-      </div>
-            
-      <div id="6" class="tabcontent">
-        <h3>Know how</h3>
-        <p>Tokyo is the capital of Japan.</p>
-      </div>
-    </div>
 
+      <div id="download" class="tabcontentsub">
+        <h3>download</h3>
+        <p>download is the capital of Japan.</p>
+      </div>
+
+      <div id="analyze" class="tabcontentsub">
+        <h3>analyze</h3>
+        <p>analyze is the capital of Japan.</p>
+      </div>
+
+      <div id="knowhow" class="tabcontentsub">
+        <h3>knowhow</h3>
+        <p>knowhow is the capital of Japan.</p>
+      </div>
+
+    </div>
     <div id="details-box">
-        
+      <div id="welcomemain" class="tabcontent">
+        <h3>welcom</h3>
+        <p>welcomis the capital city of England.</p>
+      </div>
+
+      <div id="signinmain" class="tabcontent">
+        <h3>signin</h3>
+        <p>signinup is the capital of France.</p>
+      </div>
+
+      <div id="signupmain" class="tabcontent">
+        <h3>signup</h3>
+        <p>signup is the capital of France.</p>
+      </div>
+
+      <div id="uploadmain" class="tabcontent">
+        <h3>upload</h3>
+        <p>upload is the capital of Japan.</p>
+      </div>
+
+      <div id="downloadmain" class="tabcontent">
+        <h3>download</h3>
+        <p>download is the capital of Japan.</p>
+      </div>
+
+      <div id="analyzemain" class="tabcontent">
+        <h3>analyze</h3>
+        <p>analyze is the capital of Japan.</p>
+      </div>
+
+      <div id="knowhowmain" class="tabcontent">
+        <h3>knowhow</h3>
+        <p>knowhow is the capital of Japan.</p>
+      </div>
+    
     </div>
 
 

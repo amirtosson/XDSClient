@@ -22,16 +22,13 @@ background-color: 'red' !important;
 }
 
 
-.xds-tool-box-item:hover{
+#xds-tool-box-item:hover{
   background-color:white;
   color: black;
   cursor: pointer;}
 
-.xds-tool-box-item{
+#xds-tool-box-item{
   margin: 10px;
 
 }
 
-.active{
-  background-color:green;
-}
