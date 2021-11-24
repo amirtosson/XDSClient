@@ -13,7 +13,7 @@ export const appRoutes: Routes = [
 
   {
       path: 'login', component: LoginPageComponent
-      //children: [{path: '', component: SignInComponent}]
+      //children: [{path: 'login', component: HomePageComponent}]
   },
 
   {

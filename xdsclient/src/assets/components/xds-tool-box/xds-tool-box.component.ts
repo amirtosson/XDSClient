@@ -9,28 +9,62 @@ export class XdsToolBoxComponent implements OnInit {
 
   @Output() xdsActiveButton = new EventEmitter<number>();
   constructor() { }
-
+  buttonID = 1;
   ngOnInit(): void {
+    this.DeactivateAll();
+    this.ActivateButton();
+  }
+
+  DeactivateAll(){
+    var i, tabcontent, tablinks;
+    tabcontent = Array.from(document.getElementsByClassName('active') as HTMLCollectionOf<HTMLElement>)
+    if(tabcontent.length > 0){
+      tabcontent[0].classList.remove("active");
+    }
+  }
+
+  ActivateButton(){
+    var id = this.buttonID.toString() + "a";
+    var t = document.getElementById(id);
+    t?.classList.add("active");
   }
 
   WelcomeIsClicked(){
-    this.xdsActiveButton.emit(1);
+    this.buttonID = 1;
+    this.xdsActiveButton.emit(this.buttonID);
+    this.DeactivateAll();
+    this.ActivateButton();
   }
 
   SignInUpIsClicked(){
-    this.xdsActiveButton.emit(2);
+    this.buttonID = 2;
+    this.xdsActiveButton.emit(this.buttonID);
+    this.DeactivateAll();
+    this.ActivateButton();
   }
   UploadIsClicked(){
-    this.xdsActiveButton.emit(3);
+    this.buttonID = 3;
+    this.xdsActiveButton.emit(this.buttonID);
+    this.DeactivateAll();
+    this.ActivateButton();
   }
   DownloadIsClicked(){
-    this.xdsActiveButton.emit(4);
+    this.buttonID = 4;
+    this.xdsActiveButton.emit(this.buttonID);
+    this.DeactivateAll();
+    this.ActivateButton();
   }
   AnalyzeIsClicked(){
-    this.xdsActiveButton.emit(5);
+    this.buttonID = 5;
+    this.xdsActiveButton.emit(this.buttonID);
+    this.DeactivateAll();
+    this.ActivateButton();
   }
   KnowHowIsClicked(){
-    this.xdsActiveButton.emit(6);
+    this.buttonID = 6;
+    this.xdsActiveButton.emit(this.buttonID);
+    this.DeactivateAll();
+    this.ActivateButton();
   }
 
 }

@@ -2,25 +2,39 @@
 
 <div class="xds-info-main-box-style">
     <app-xds-tool-box id="tool-box" (click)="ToolBoxIsClicked()" (xdsActiveButton)="buttonId=$event"></app-xds-tool-box>
-    
-    <div id="sub-menu">xds-info-main-box works!
-        <div id="London" class="tabcontent">
-            <h3>London</h3>
-            <p>London is the capital city of England.</p>
-          </div>
-
-          <div id="Paris" class="tabcontent">
-            <h3>Paris</h3>
-            <p>Paris is the capital of France.</p>
-          </div>
-          
-          
-      <div id="Tokyo" class="tabcontent">
-        <h3>Tokyo</h3>
-        <p>Tokyo is the capital of Japan.</p>
+    <div id="sub-menu">
+      <div id="1" class="tabcontent">
+          <h3>Welcome</h3>
+          <p>Welcome to X-ray data science cloud. This aims to gather all datasets in one cloud.</p>
+          <a routerLink="/login" class="btn btn-primary">Go somewhere</a>
       </div>
 
+      <div id="2" class="tabcontent">
+        <h3>SignIn/Up</h3>
+        <p>Login to your accout or create a new one.</p>
+      </div>
+          
+      <div id="3" class="tabcontent">
+        <h3>Upload</h3>
+        <p>Tokyo is the capital of Japan.</p>
+      </div>
+      
+      <div id="4" class="tabcontent">
+        <h3>Download</h3>
+        <p>Tokyo is the capital of Japan.</p>
+      </div>
+            
+      <div id="5" class="tabcontent">
+        <h3>Analyze</h3>
+        <p>Tokyo is the capital of Japan.</p>
+      </div>
+            
+      <div id="6" class="tabcontent">
+        <h3>Know how</h3>
+        <p>Tokyo is the capital of Japan.</p>
+      </div>
     </div>
+
     <div id="details-box">
         
     </div>

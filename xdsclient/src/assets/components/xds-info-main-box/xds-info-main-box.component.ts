@@ -6,13 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./xds-info-main-box.component.css']
 })
 export class XdsInfoMainBoxComponent implements OnInit {
-  buttonId = 0
+  buttonId = 1
   constructor() { }
 
   ngOnInit(): void {
+    this.HideAll();
+    this.ShowMenu(this.buttonId);
   }
-  
-  ToolBoxIsClicked(){
+
+  HideAll(){
     var i, tabcontent, tablinks;
     tabcontent = Array.from(document.getElementsByClassName('tabcontent') as HTMLCollectionOf<HTMLElement>)
 
@@ -20,15 +22,15 @@ export class XdsInfoMainBoxComponent implements OnInit {
     for (i = 0; i < tabcontent.length; i++) {
       tabcontent[i].style.display = "none";
     }
-    
-    if(this.buttonId===1)
-    {
-      var t = document.getElementById("Tokyo");
-      
-    }
-    console.log(this.buttonId)
-    console.log("this.buttonId")
-  } 
+  }
 
+  ShowMenu(a:number){
+    var t = document.getElementById(a.toString()) as HTMLLIElement;
+    t.style.display = "block";
+  }
   
+  ToolBoxIsClicked(){
+   this.HideAll();
+    this.ShowMenu(this.buttonId);
+  } 
 }
