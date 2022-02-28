@@ -16,7 +16,7 @@ export class XdsInfoMainBoxComponent implements OnInit {
   
   ToolBoxIsClicked(){
     this.HideAll();
-    
+    this.HideAllMain();
     if(this.buttonId===1)
     {
       var t = document.getElementById("welcome") as HTMLElement;

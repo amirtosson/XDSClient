@@ -7,7 +7,7 @@ var con = mysql.createConnection({
     host: "localhost",
     port:"3306",
     user: "root",
-    password: "rock255",
+    password: "26472647",
     database: "xdsdb"
   });
 
@@ -41,5 +41,11 @@ function Login (req,res){
     //res.sendFile("../dist/xdsclient/index.html");
 }
 
+function Home (req,res){ 
+    //console.log(req) 
+    //return res.redirect('home');
+    return res.status(200).json("H");
+    //res.sendFile("../dist/xdsclient/index.html");
+}
 
-module.exports = {Test, GetNews, Login};
+module.exports = {Test, GetNews, Login, Home};

@@ -11,7 +11,7 @@ export class XdsNewsHighlightsComponent implements OnInit {
   constructor() { }
 
   async ngOnInit(): Promise<void> {
-    this.newsArr = await NewsDatServerFunctions.getNewsData("/getnews");
+    //this.newsArr = await NewsDatServerFunctions.getNewsData("/getnews");
     //console.log(this.newsArr.length);
 
     var main = document.getElementById("main") as HTMLDivElement;
@@ -28,7 +28,7 @@ export class XdsNewsHighlightsComponent implements OnInit {
         //cDiv.setAttribute("id","xdr-card");
         //main.appendChild(cDiv); 
         var Img = document.createElement("img");
-        Img.setAttribute("src", "../../../assets/Images/xds.PNG");
+        Img.setAttribute("src",this.newsArr[i+j].imglink);
         Img.setAttribute("class", "card-img-top");
         Img.setAttribute("alt", "Card image cap");
 
