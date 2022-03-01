@@ -1,10 +1,9 @@
-
 export class NewsDatServerFunctions {
 
   
 
   constructor() { }
-  static getNewsData = async(url = 'http://127.0.0.1:3000/home') => {
+  static getNewsData = async(url = 'http://141.99.126.56:3000/getnews') => {
     const response = await fetch(url, {
       method:'GET',
       mode: 'no-cors',

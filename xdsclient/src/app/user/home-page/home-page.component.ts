@@ -16,24 +16,8 @@ export class HomePageComponent implements OnInit {
   })};
   constructor(private http: HttpClient) { }
   getUserProfile(){
-    return this.http.get('http://localhost:3000/',this.noAuthHeader);
+    return this.http.post('http://141.99.126.56:3000/home',this.noAuthHeader);
   }
-
-  getData(): Observable<any> {
-    return from(
-      fetch(
-        'http://localhost:5000/todo/tasks', // the url you are trying to access
-        {
-          headers: {
-            'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin': '*',
-          },
-          method: 'GET', // GET, POST, PUT, DELETE
-          mode: 'no-cors' // the most important option
-        }
-      ));
-  }
-
   ngOnInit(): void {
   }
   
