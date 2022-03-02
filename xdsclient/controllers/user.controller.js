@@ -1,5 +1,7 @@
 //var passport = require('passport');
 var mysql = require('mysql');
+const path = require('path');
+const fs = require('fs');
 
 
 
@@ -11,22 +13,6 @@ var con = mysql.createConnection({
     database: "xdsdb"
   });
 
-function Test (req,res){ 
-
-    var query = "SELECT * FROM xdsusers WHERE loginname = " + "\""+req.body.name + "\"" + 
-                "AND password = " + "\""+req.body.password + "\""
-
-        con.query(query, function (err, result, fields) {
-        //if (err) throw err;
-        if (result[0] === undefined ) {
-            res.json(0);
-        } else {
-            res.json(result[0].id);
-        }
-        //res.json(result);
-        
-        });
-}
 
 function GetNews (req,res){ 
     con.query("SELECT * FROM news", function (err, result, fields) {
@@ -35,17 +21,62 @@ function GetNews (req,res){
     });
 }
 
-function Login (req,res){ 
-    //console.log(req) 
-    res.redirect('login');
-    //res.sendFile("../dist/xdsclient/index.html");
+function GetFilesList (req,res){ 
+    console.log("file"); 
+    //var directoryPath = "/media/tosson/SEAGATE/userscloud/user" + req.body.user_id;
+    var directoryPath = "/media/tosson/SEAGATE/userscloud/user1"
+    fs.readdir(directoryPath, function (err, files) {
+        //handling error
+        if (err) {
+            return console.log('Unable to scan directory: ' + err);
+        } 
+        res.json(files)
+    });
+   
+}
+
+function GetUserActivities (req,res){ 
+    var query = "SELECT * FROM act" + req.body.user_id;
+    console.log(query);
+
+    try {
+        con.query(query, function (err, result, fields) {
+
+        console.log(result);
+        res.json(result);
+        });
+    } catch (error) { 
+        res.json("Something Wrong");
+    }
+}
+
+function Login (req,res)
+{ 
+    var query = "SELECT * FROM xdsusers WHERE loginname = " + "\""+req.body.user_name + "\"" + 
+                "AND password = " + "\""+req.body.user_pwd + "\""
+
+        con.query(query, function (err, result, fields) {
+        if (result[0] === undefined ) {
+            res.json(
+                { 
+                    "status": 404,
+                    "user_id": 0  
+                }
+            );
+        } else {
+            res.json
+            (
+                { 
+                    "status": 200,
+                    "user_id": result[0].id  
+                }
+            );
+        }
+    });
 }
 
 function Home (req,res){ 
-    //console.log(req) 
-    //return res.redirect('home');
     return res.status(200).json("H");
-    //res.sendFile("../dist/xdsclient/index.html");
 }
 
-module.exports = {Test, GetNews, Login, Home};
+module.exports = { GetNews, Login, Home, GetUserActivities, GetFilesList};

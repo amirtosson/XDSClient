@@ -1,0 +1,24 @@
+.xds-profile-card
+{
+    margin: auto;
+    max-width: 70%;
+    vertical-align: middle;
+    margin-top: 50px;
+}
+
+.xds-tab-goupe 
+{
+    margin-top: 50px;
+}
+
+.xds-tab-goupe .nav-item
+{
+    cursor: pointer;;
+}
+
+.xds-active
+{
+    border:0.5px solid black ;
+    background-color: rgb(170, 160, 160);
+    
+}

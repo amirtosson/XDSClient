@@ -12,7 +12,7 @@ const app = express();
       
 app.use(cors());
 app.use(bodyparser.json());
-//app.use(indexRouter);
+app.use(indexRouter);
 //app.use(express.static(process.cwd()+"/dist/xdsclient/"));
 
 app.get('/', function (req, res) {

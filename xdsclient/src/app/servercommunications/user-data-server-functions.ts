@@ -2,6 +2,7 @@ import { User } from '../Models/userModel/user.model';
 
 
 export class UserDataServerFunctions {
+  static loggedInUserID = 0;
   constructor() { }
   static getData = async(url = '', userData: User) => {
     const response = await fetch(url, {
@@ -22,4 +23,64 @@ export class UserDataServerFunctions {
     }
 
   };
+
+  static async LoginUser(user_name: string, user_pwd: string) 
+  {
+    const response = await fetch
+    (
+      'http://141.99.126.56:3000/login', 
+      {
+        method:'POST',
+        headers: {
+            'Content-Type':'application/json', 
+            'Access-Control-Allow-Origin': '*'
+          }, 
+        body: JSON.stringify({'user_name':user_name, 'user_pwd':user_pwd })                  
+      }
+    );
+    const res = await response.json();
+    return res;
+  }
+
+  static async UserActivities() 
+  {
+    const response = await fetch
+    (
+      'http://141.99.126.56:3000/userrecentactivities', 
+      {
+        method:'POST',
+        headers: {
+            'Content-Type':'application/json', 
+            'Access-Control-Allow-Origin': '*'
+          }, 
+        body: JSON.stringify({'user_id':this.loggedInUserID})                  
+      }
+    );
+    
+    const res = await response.json();
+    console.log(res);
+    return res;
+  }
+
+  static async UserDatasets() 
+  {
+    console.log(this.loggedInUserID);
+    const response = await fetch
+    (
+      'http://141.99.126.56:3000/userdatasets', 
+      {
+        method:'POST',
+        headers: {
+            'Content-Type':'application/json', 
+            'Access-Control-Allow-Origin': '*'
+          }, 
+        body: JSON.stringify({'user_id':this.loggedInUserID})                  
+      }
+    );
+    
+    const res = await response.json();
+    console.log(res);
+    return res;
+  }
+
 };

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
+import { Router } from '@angular/router';
+import {UserDataServerFunctions} from "../../../app/servercommunications/user-data-server-functions";
+
 
 
 @Component({
@@ -9,40 +11,33 @@ import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 })
 export class LoginPageComponent implements OnInit {
 
-  constructor(private http: HttpClient) { }
+  constructor(private router: Router) { }
 
-  ngOnInit(): void {
-
-
-    const headerDict = {
-      'Content-Type': 'application/json',
-      'Accept': 'application/json',
-      'Access-Control-Allow-Origin': '*',
-    }
-    
-    const requestOptions = {                                                                                                                                                                                 
-      headers: new HttpHeaders(headerDict), 
-      body: [
-        {
-            "id": 1
-        },
-        {
-            "id": 2
-        }
-    ],
-    };
-
-
-  // this.http.post("http://localhost:5000/login",requestOptions ).subscribe(
-  //   data => {
-  //    console.log(data);
-  // }
-  //)
-
+  ngOnInit(): void 
+  {
 
   }
-  onTextChange(){
-    var x = document.getElementById("username-input") as HTMLInputElement;
-    console.log( x.value.toString())
+
+  onSignIn(){
+    var userName = document.getElementById("username-input") as HTMLInputElement;
+    var userPassword = document.getElementById("userpwd-input") as HTMLInputElement;
+    console.log(userName.value)
+
+    UserDataServerFunctions.LoginUser(userName.value,userPassword.value)
+    .then
+    (
+      res => 
+      {
+        if (res.status == 200) {
+          UserDataServerFunctions.loggedInUserID = res.user_id;
+          this.router.navigateByUrl('/userprofile');
+        } 
+        else 
+        {
+          console.log("Not found")
+        }
+        
+      }
+    );
   }
 }

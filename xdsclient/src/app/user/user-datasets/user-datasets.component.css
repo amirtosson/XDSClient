@@ -1,0 +1,4 @@
+li:hover { 
+    background-color:  rgb(170, 160, 160);
+    cursor: pointer;
+  }

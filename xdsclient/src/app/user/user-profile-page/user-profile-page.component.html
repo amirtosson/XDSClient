@@ -1,0 +1,37 @@
+
+  <div class="card mb-3 xds-profile-card" >
+    <div class="row no-gutters">
+      <div class="col-md-4">
+        <img src="https://mdbootstrap.com/img/new/standard/nature/184.webp" class="card-img" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<ul class="nav nav-tabs xds-tab-goupe" (click)="RecentActivities($event)">
+    <li class="nav-item xds-active" id="tab1m">
+      <a class="nav-link" id="tab1">Recent activities</a>
+    </li>
+    <li class="nav-item" id="tab2m">
+      <a class="nav-link" id="tab2">Datasets by you</a>
+    </li>
+    <li class="nav-item" id="tab3m" >
+      <a class="nav-link" id="tab3" >Datasets you followed</a>
+    </li>
+    <li class="nav-item" id="tab4m">
+      <a class="nav-link" id="tab4">Appointments </a>
+    </li>
+  </ul>
+
+  <div id="user-tab-contents">
+      <app-user-recent-activities class="tab-content" style="display: none;" id="tab1c"></app-user-recent-activities>
+      <app-user-datasets class="tab-content" style="display: none;" id="tab2c"></app-user-datasets>
+      <app-user-saved-datasets class="tab-content" style="display: none;" id="tab3c"></app-user-saved-datasets>
+    </div>
