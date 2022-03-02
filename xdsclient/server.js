@@ -15,10 +15,9 @@ app.use(bodyparser.json());
 app.use(indexRouter);
 //app.use(express.static(process.cwd()+"/dist/xdsclient/"));
 
-app.get('/', function (req, res) {
-  //res.status(200).json("H");
-  res.send("His")
-  })
+// app.get('/', function (req, res) {
+//   res.status(200).json("H");
+//   })
 
 
 app.listen(port, () => {
