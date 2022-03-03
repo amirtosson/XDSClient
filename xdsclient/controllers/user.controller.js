@@ -15,22 +15,9 @@ var con = mysql.createConnection({
 
 
 function GetNews (req,res){ 
-    con.query("SELECT title FROM news", function (err, result, fields) {
+    con.query("SELECT * FROM news", function (err, result, fields) {
     if (err) throw err;
-    console.log(result)
-    for (const key in result) {
-        console.log(key)
-        var string=JSON.stringify(result);
-
-    }
-    var string=JSON.stringify(result);
-    // console.log('>> string: ', string );
-    // var json =  JSON.parse(string);
-    // console.log('>> JSON: ', json );
-    res.append('Link', ['<http://localhost/>', '<http://localhost:3000/>']);
-    res.append('Set-Cookie', 'foo=bar; Path=/; HttpOnly');
-    res.append('Warning', '199 Miscellaneous warning');
-    return res.status(200).json("H");
+    res.json(result);
     });
 }
 
@@ -54,8 +41,6 @@ function GetUserActivities (req,res){
 
     try {
         con.query(query, function (err, result, fields) {
-
-        console.log(result);
         res.json(result);
         });
     } catch (error) { 

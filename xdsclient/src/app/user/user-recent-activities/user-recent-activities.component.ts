@@ -24,5 +24,4 @@ export class UserRecentActivitiesComponent implements OnInit {
       }
     );
   }
-
 }

@@ -1,9 +1,6 @@
 export class NewsDatServerFunctions {
 
-  constructor() { }
-
-
-  static async fetchMoviesJSON() 
+  static async GetNews() 
   {
     const response = await fetch('http://141.99.126.56:3000/getnews', {
       method:'GET',
@@ -12,10 +9,10 @@ export class NewsDatServerFunctions {
           'Access-Control-Allow-Origin': '*'
         } 
       });
-    const movies = await response.json();
+    const news = await response.json();
 
-
-    return movies;
+    console.log(news);
+    return news;
   }
 };
 

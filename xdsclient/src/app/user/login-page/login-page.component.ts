@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import {UserDataServerFunctions} from "../../../app/servercommunications/user-data-server-functions";
+import { UserSharedDetails } from "../../shared/user.details";
 
 
 
@@ -30,6 +31,7 @@ export class LoginPageComponent implements OnInit {
       {
         if (res.status == 200) {
           UserDataServerFunctions.loggedInUserID = res.user_id;
+          UserSharedDetails.loggedInUser = true;
           this.router.navigateByUrl('/userprofile');
         } 
         else 

@@ -2,7 +2,8 @@ import { Component, OnInit, ViewContainerRef, ComponentFactoryResolver, QueryLis
 import { UserRecentActivitiesComponent } from "../user-recent-activities/user-recent-activities.component";
 import { UserDatasetsComponent } from "../user-datasets/user-datasets.component";
 import { UserSavedDatasetsComponent } from "../user-saved-datasets/user-saved-datasets.component";
-
+import { AppComponent } from "../../app.component";
+import { XDSHeaderbarDropMenuItem } from "../../../assets/components/xds-headerbar/xds-headerbar-user-menu-item";
 
 @Component({
   selector: 'app-user-profile-page',
@@ -12,14 +13,15 @@ import { UserSavedDatasetsComponent } from "../user-saved-datasets/user-saved-da
 
 export class UserProfilePageComponent implements AfterViewInit {
   extraCreature!: string;
-  constructor() { }
-  // @ViewChild(UserDatasetsComponent) private datasets = {} as UserDatasetsComponent;
-  // @ViewChild(UserRecentActivitiesComponent) private recentActivities = {} as UserRecentActivitiesComponent;
-  // @ViewChild(UserSavedDatasetsComponent) private savedDatastes = {} as UserSavedDatasetsComponent;
-
+  public headerBarUMItems: XDSHeaderbarDropMenuItem[] = [];
+  constructor(private AppComponent: AppComponent) 
+  { 
+    AppComponent.UpdateMenuItems();
+  }
   @ViewChildren(UserDatasetsComponent)datasets!:QueryList<UserDatasetsComponent>;
   @ViewChildren(UserRecentActivitiesComponent)recentActivities!:QueryList<UserRecentActivitiesComponent>;
   @ViewChildren(UserSavedDatasetsComponent)savedDatastes!:QueryList<UserSavedDatasetsComponent>;
+
 
   RecentActivities($event: { target: any; })
   {
