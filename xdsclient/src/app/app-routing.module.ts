@@ -4,6 +4,7 @@ import { HomePageComponent } from './user/home-page/home-page.component';
 import { SignUpPageComponent } from './user/sign-up-page/sign-up-page.component';
 import { LoginPageComponent } from './user/login-page/login-page.component';
 import {UserProfilePageComponent} from "./user/user-profile-page/user-profile-page.component"
+import { GeneralLandingPageComponent } from "./general/landing-page/general-landing-page/general-landing-page.component";
 
 
 export const appRoutes: Routes = [
@@ -18,7 +19,10 @@ export const appRoutes: Routes = [
   },
 
   {
-      path: 'home', component: HomePageComponent
+      path: 'userdashboard', component: HomePageComponent
+  },
+  {
+    path: 'home', component: GeneralLandingPageComponent
   },
   {
       path: '', redirectTo: '/home', pathMatch: 'full',

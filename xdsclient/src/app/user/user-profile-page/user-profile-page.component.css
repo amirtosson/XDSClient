@@ -1,3 +1,13 @@
+
+
+*{
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth; 
+    background-color: transparent;
+}
 .xds-profile-card
 {
     margin: auto;
@@ -16,9 +26,26 @@
     cursor: pointer;;
 }
 
+.user-tab-contents{
+    min-height: 100px;
+    background-color: #fff;
+}
+
+.tab-content {
+    background-color: #fff;
+    color: #3a6cf4 ;
+}
+
 .xds-active
 {
     border:0.5px solid black ;
-    background-color: rgb(170, 160, 160);
+    background-color: #fff;
+    color: #3a6cf4 ;
     
+}
+
+
+.user-tabs {
+    background-color: #3a6cf4 ;
+    color: #fff;
 }

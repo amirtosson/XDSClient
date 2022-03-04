@@ -2,3 +2,32 @@
     width: 31%;
     margin: 10px;
 }
+
+.content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: rgb(255, 255, 255);
+    padding: 20px;
+}
+
+.content .news-card {
+    background-color: #fff;
+    border: 1px solid rgb(0, 0, 0);
+    min-height: 14em;
+    width: 23em;
+    overflow: hidden;
+    border-radius: 10px;
+    margin: 20px;
+    transition: 0.7s ease;
+}
+
+
+.news-card:hover {
+    
+    border: 10px solid rgb(0, 0, 0);
+
+}
+
+
+

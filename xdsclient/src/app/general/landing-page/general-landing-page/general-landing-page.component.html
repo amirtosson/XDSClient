@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>X-ray Data science group</title>
+</head>
+
+<body>
+    <section class="main">
+        <div>
+            <h2>University of Siegen, Germany<br><span>X-ray data science group</span></h2>
+            <h3>We build the digital science</h3>
+            <a (click)="scroll()" class="main-btn">View our projects</a>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+        <div>
+            <img src="../../../../assets/Images/img2.JPG" >
+        </div>
+    </section>
+
+    <section class="cards" id="servicesl">
+        <h2 class="title">Our interests</h2>
+        <div class="content">
+            <div class="card">
+                <div class="icon">
+                    <i class="fas fa-flask"></i>
+                </div>
+                <div class="info">
+                    <h3>Sientific Research</h3>
+                    <p>Research and write scripts for different topics that can then be directly recorded for video production</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="icon">
+                    <i class="fas fa-database"></i>
+                </div>
+                <div class="info">
+                    <h3>Data Science</h3>
+                    <p>Record and shoot videos taking into consideration proper settings, followed by production & post-production work</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div class="info">
+                    <h3>Teaching</h3>
+                    <p>We offer different scientific and techniqal courses</p>
+                </div>
+            </div>
+        </div>
+        <button (click)="GoToTop()" class="go-to-top-btn">
+            Go to top
+        </button>
+    </section>
+    <section class="projects" id="projectsl">
+        <h2 class="title">Our Services</h2>
+        <div class="content">
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="../../../../assets/Images/work2.png" />
+                </div>
+                <div class="project-info">
+                    <p class="project-category">XFEL studies of the interaction of ultra-intense laser radiation with solids  </p>
+                    <strong class="project-title">
+                        <span>Dev Books</span>
+                        <a href="#" class="more-details">More details</a>
+                    </strong>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="../../../../assets/Images/work3.jpg" />
+                </div>
+                <div class="project-info">
+                    <p class="project-category">XFEL investigations of ultrafast surface dynamics in magnetic materials</p>
+                    <strong class="project-title">
+                        <span>Dev Books</span>
+                        <a href="#" class="more-details">More details</a>
+                    </strong>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="../../../../assets/Images/work1.gif" />
+                </div>
+                <div class="project-info">
+                    <p class="project-category">Nanoscale fluctuations in soft and hard condensed matter measured with XPCS  </p>
+                    <strong class="project-title">
+                        <span>Dev Books</span>
+                        <a href="#" class="more-details">More details</a>
+                    </strong>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="../../../../assets/Images/work4.jpg" />
+                </div>
+                <div class="project-info">
+                    <p class="project-category">Big data analytics</p>
+                    <strong class="project-title">
+                        <span>Dev Books</span>
+                        <a href="#" class="more-details">More details</a>
+                    </strong>
+                </div>
+            </div>
+        </div>
+        <button (click)="GoToTop()" class="go-to-top-btn">
+            Go to top
+        </button>
+    </section>
+
+    <section class="cards"  id="newsl">
+        <h2 class="title">Our Latest News</h2>
+        <app-xds-news-highlights id="row2"></app-xds-news-highlights>
+
+        <button (click)="GoToTop()" class="go-to-top-btn">
+            Go to top
+        </button>
+    </section>
+    <section id="membersl">
+        <button (click)="GoToTop()" class="go-to-top-btn">
+            Go to top
+        </button>
+    </section>
+    <section class="cards contact" id="contactl">
+        <h2 class="title">Let's work together</h2>
+        <div class="content">
+            <div class="card">
+                <div class="icon">
+                    <i class="fas fa-phone"></i>
+                </div>
+                <div class="info">
+                    <h3>Phone</h3>
+                    <p>+49 22222 </p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <div class="info">
+                    <h3>Email</h3>
+                    <p>xraydatascience@physik.uni-siegen.de</p>
+                </div>
+            </div>
+        </div>
+        <button (click)="GoToTop()" class="go-to-top-btn">
+            Go to top
+        </button>
+    </section>
+</body>
+
+</html>

@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { XDSHeaderbarItem } from "../xds-headerbar/xds-headerbar-item";
 import { XDSHeaderbarDropMenuItem } from "../xds-headerbar/xds-headerbar-user-menu-item";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-xds-headerbar',
@@ -22,7 +23,7 @@ export class XdsHeaderbarComponent implements OnInit {
 
   
 
-  constructor() { }
+  constructor( private router: Router) { }
 
   ngOnInit(): void {
     //this.menu.style.display = "none"
@@ -47,4 +48,21 @@ export class XdsHeaderbarComponent implements OnInit {
     }
     
   }
+
+  Scroll($event: { target: any; }){
+    var id = $event.target.attributes.id.value
+    console.log(id +"l")
+    var el = document.getElementById(id+"l") as HTMLDivElement; 
+    console.log(el.offsetTop)
+
+    //window.scroll(0,el.offsetTop);
+    //.scrollIntoView({behavior: 'smooth'});
+    window.scrollTo({
+      top: el.offsetTop,
+      behavior: 'smooth',
+    });
+  
+  }
+
+
 }

@@ -1,11 +1,21 @@
 .footer {
-    left: 0;
-    bottom: 0;
-    margin: 10px 10px 10px 10px;
-    width: 99%;
-    background: gray;
-    color: black;
-    text-align: center;
-    font-style: oblique; 
+    background-color: #f0f0f0;;
+    color:  #3a6cf4;
+    padding: 2em;
+    display: flex;
+    justify-content: space-between;
 }
 
+.footer-title {
+    font-size: 1.3em;
+    font-weight: 600;
+}
+
+.footer-title span {
+    color: #3a6cf4;
+}
+
+.footer .social-icons a{
+    font-size: 1.3em;
+    padding: 0 12px 0 0;
+}

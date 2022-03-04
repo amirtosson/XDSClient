@@ -1,4 +1,44 @@
   
+<header>
+  <div>
+
+    <nav class="navigation">
+      <a href="https://xray.physik.uni-siegen.de/home/" class="logo">
+        <img src="../../../assets/Images/logo.png">
+      </a>
+
+        <a id="services" (click)="Scroll($event)">Our Interests</a>
+        <a id="projects"(click)="Scroll($event)" >Our Services</a>
+        <a id="news" (click)="Scroll($event)">News</a>
+        <a id="members" (click)="Scroll($event)">Members</a>
+        <a id="contact" (click)="Scroll($event)">Contact</a>
+    </nav>
+  </div>
+  <div>
+    <button type="button" (click)="OpenUserMenu()" class="btn btn-circle btn-md dropdown" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <i class="fa fa-user fa-2x"></i>
+    </button>
+    <div id="userMenuContents" class="dropdown-content" style="display: none;">
+      <div class="dropdown">
+        <a *ngFor="let item of headerUMItems"  [class]="item.Button" [href]="item.RouterLink"  >
+          <i  >
+            {{item.Name}}
+          </i>
+        </a> 
+        <a class="fa fa-cog" href="#">
+          <i  >
+            Setting
+          </i>
+        </a>
+    </div> 
+    </div>
+  </div>
+
+</header>
+
+<!-- 
+
+
 <div>
   <nav class="navbar navbar-expand-lg navbar-light xds-nave-bar ">
     <div class="collapse navbar-collapse container" id="navbarSupportedContent">
@@ -35,4 +75,4 @@
     </div>
   </nav>
 </div>
-
+ -->

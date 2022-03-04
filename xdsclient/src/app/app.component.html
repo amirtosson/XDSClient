@@ -9,19 +9,14 @@
 
     </head>
     <app-xds-headerbar [headerUMItems]="headerBarUMItems" [headerItems]="headerBarItems" ></app-xds-headerbar>
-    <app-xds-header-signature style="margin-top: 100px;" ></app-xds-header-signature>
+    <!-- <app-xds-header-signature style="margin-top: 100px;" ></app-xds-header-signature> -->
 
-<body class="container">
+<body class=" containerbackground">
     
-    <div>
-        <div>
-            
-        </div>
-        <div>
-            <div>
+    <div class="container containerm" >
                 <router-outlet></router-outlet>
-            </div>
-        </div>
+                <app-xds-footer-signature></app-xds-footer-signature> 
+
     </div>
     <br> 
 

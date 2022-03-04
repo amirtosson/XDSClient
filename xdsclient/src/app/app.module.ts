@@ -25,6 +25,8 @@ import { XdsFooterSignatureComponent } from '../assets/components/xds-footer-sig
 import { UserRecentActivitiesComponent } from './user/user-recent-activities/user-recent-activities.component';
 import { UserDatasetsComponent } from './user/user-datasets/user-datasets.component';
 import { UserSavedDatasetsComponent } from './user/user-saved-datasets/user-saved-datasets.component';
+import { GeneralLandingPageComponent } from './general/landing-page/general-landing-page/general-landing-page.component';
+import { MembersComponent } from './general/members/members.component';
 
 
 
@@ -45,7 +47,9 @@ import { UserSavedDatasetsComponent } from './user/user-saved-datasets/user-save
     UserProfilePageComponent,
     UserRecentActivitiesComponent,
     UserDatasetsComponent,
-    UserSavedDatasetsComponent
+    UserSavedDatasetsComponent,
+    GeneralLandingPageComponent,
+    MembersComponent
   ],
   imports: [
     BrowserModule,

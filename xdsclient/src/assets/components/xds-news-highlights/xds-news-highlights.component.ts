@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import { Observable, Subject } from 'rxjs';
 import {from} from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { style } from '@angular/animations';
 
 @Component({
   selector: 'app-xds-news-highlights',
@@ -21,36 +22,40 @@ export class XdsNewsHighlightsComponent implements OnInit{
       {
         const iterator = news.values();
         var main = document.getElementById("main") as HTMLDivElement;
-        var divCounter = 1;
-        var rDiv = document.createElement("div");
-        rDiv.setAttribute("class","row");
-        main.appendChild(rDiv);
+ 
         for (const value of iterator) 
-        {      
-          if(divCounter%3 == 0)
-          {
-            var rDiv = document.createElement("div");
-            rDiv.setAttribute("class","row");
-            main.appendChild(rDiv);
-          }
+        {     
+          var rDiv = document.createElement("div");  
+  
+          rDiv.setAttribute("class","news-card");
+          var css = '.news-card:hover { transform: scale(1.1);}'+
+          ' .news-card {background-color: #fff; border: 1px solid rgb(0, 0, 0); '
+          +'min-height: 14em; width: 23em;overflow: hidden; border-radius: 10px; margin: 20px;transition: 0.4s ease; }';
+          var style = document.createElement('style');
+          
+  
+          style.appendChild(document.createTextNode(css));
+         
+          
+          document.getElementsByTagName('head')[0].appendChild(style);
+          main.appendChild(rDiv);
           var cDiv = document.createElement("div");
-          cDiv.setAttribute("class","card xdr-card-style");
-          cDiv.style.width = "31%";
-          cDiv.style.margin = "10px"; 
+          cDiv.setAttribute("class","news-img");
+          
           var Img = document.createElement("img");
           Img.setAttribute("src",value['imglink']);
-          Img.setAttribute("class", "card-img-top");
-          Img.setAttribute("alt", "Card image cap");
+          Img.style.width = "100%"
           cDiv.appendChild(Img); 
           var bDiv = document.createElement("div");
-          bDiv.setAttribute("class", "card-body");
+          bDiv.style.padding = "1em"
+          bDiv.setAttribute("class", "news-info");
           var newHeading2 = document.createElement("h5");
-          newHeading2.setAttribute("class", "card-title");
+          //newHeading2.setAttribute("class", "news-title");
           newHeading2.innerHTML = value['title'];
           bDiv.appendChild(newHeading2); 
 
           var newText = document.createElement("p");
-          newText.setAttribute("class", "card-text");
+          //newText.setAttribute("class", "card-text");
           newText.innerHTML = value['text'];
           bDiv.appendChild(newText);
 
@@ -58,11 +63,13 @@ export class XdsNewsHighlightsComponent implements OnInit{
           newLink.setAttribute("href", "#" );
           //newLink.setAttribute("class", "btn btn-primary" );
           newLink.innerHTML = "read more";
+          rDiv.appendChild(cDiv);  
           bDiv.appendChild(newLink); 
-          cDiv.appendChild(bDiv); 
+          rDiv.appendChild(bDiv); 
           
-          cDiv.appendChild(bDiv); 
-          rDiv.appendChild(cDiv);       
+          //rDiv.appendChild(bDiv); 
+         
+               
         }
       }
     );
