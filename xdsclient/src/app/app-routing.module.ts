@@ -5,7 +5,7 @@ import { SignUpPageComponent } from './user/sign-up-page/sign-up-page.component'
 import { LoginPageComponent } from './user/login-page/login-page.component';
 import {UserProfilePageComponent} from "./user/user-profile-page/user-profile-page.component"
 import { GeneralLandingPageComponent } from "./general/landing-page/general-landing-page/general-landing-page.component";
-
+import {EditDatasetDetailsComponent  } from "./dataset/edit-dataset-details/edit-dataset-details.component";
 
 export const appRoutes: Routes = [
   {
@@ -31,6 +31,10 @@ export const appRoutes: Routes = [
   {
       path: 'userprofile', component: UserProfilePageComponent,
      
+  },
+  {
+    path: 'editdataset', component: EditDatasetDetailsComponent,
+   
   }
 ];
 

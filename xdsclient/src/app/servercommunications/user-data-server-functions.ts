@@ -83,4 +83,24 @@ export class UserDataServerFunctions {
     return res;
   }
 
+  static async UserDatasetsMetadata() 
+  {
+    console.log(this.loggedInUserID);
+    const response = await fetch
+    (
+      'http://141.99.126.56:3000/userdatasetsmetadata', 
+      {
+        method:'POST',
+        headers: {
+            'Content-Type':'application/json', 
+            'Access-Control-Allow-Origin': '*'
+          }, 
+        body: JSON.stringify({'user_id':this.loggedInUserID})                  
+      }
+    );
+    
+    const res = await response.json();
+    return res;
+  }
+
 };

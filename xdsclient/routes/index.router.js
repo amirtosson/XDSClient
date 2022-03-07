@@ -9,6 +9,9 @@ router.get('/getnews', ctrlUser.GetNews);
 router.post('/login', ctrlUser.Login);
 router.post('/userrecentactivities', ctrlUser.GetUserActivities);
 router.post('/userdatasets', ctrlUser.GetFilesList);
+router.post('/userdatasetsmetadata', ctrlUser.GetUserDatasetsMetadata);
+
+
 module.exports = router;
 //module.exports.x = () => { 
   //  return 5;

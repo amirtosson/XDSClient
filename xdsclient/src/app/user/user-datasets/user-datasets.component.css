@@ -1,4 +1,61 @@
-li:hover { 
-    background-color:  rgb(170, 160, 160);
+.dataset-item:hover { 
+    background-color:  #4e9eff;
+    color: #fff;
     cursor: pointer;
+    transform: scale(1.01);
   }
+
+
+.dataset-item{
+  display: flex;
+  justify-content: space-between;
+  text-decoration: none;
+  transition: 0.7s ease;
+}
+
+.dataset-item li{
+  border: none;
+  background-color: transparent;
+
+
+}
+
+.function-buttons a{
+  padding-right: 15px;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+.function-buttons {
+  display: flex;
+  align-items: center;
+}
+
+.function-buttons a:hover{
+  transform: scale(1.1);
+}
+
+.dataset-details{
+  display: none;
+  padding: 15px;
+  background-color:  #f0f0f0;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.detail-item{
+  padding-right: 20px;
+}
+.detail-item span{
+  font-size: x-large;
+  font-weight: bold;
+}
+
+.hide-btn{
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.hide-btn:hover{
+  transform: scale(1.1);
+  cursor: pointer;
+}

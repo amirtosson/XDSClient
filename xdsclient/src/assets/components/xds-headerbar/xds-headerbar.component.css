@@ -6,6 +6,10 @@ nav{
   scroll-behavior: smooth; 
 }
 
+nav a {
+  cursor: pointer;
+}
+
 .xds-nave-bar{
   background-color: grey;
   margin-top: -20px;

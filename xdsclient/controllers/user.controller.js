@@ -22,7 +22,6 @@ function GetNews (req,res){
 }
 
 function GetFilesList (req,res){ 
-    console.log("file"); 
     //var directoryPath = "/media/tosson/SEAGATE/userscloud/user" + req.body.user_id;
     var directoryPath = "/media/tosson/SEAGATE/userscloud/user1"
     fs.readdir(directoryPath, function (err, files) {
@@ -35,9 +34,20 @@ function GetFilesList (req,res){
    
 }
 
+function GetUserDatasetsMetadata (req,res){   
+    var query = "SELECT *, DATEDIFF(added_date, now()) as days FROM datasets WHERE owner_id = " + req.body.user_id;
+    try {
+        con.query(query, function (err, result, fields) {
+        res.json(result);
+        });
+    } catch (error) { 
+        res.json("Something Wrong");
+    }
+   
+}
+
 function GetUserActivities (req,res){ 
     var query = "SELECT * FROM act" + req.body.user_id;
-    console.log(query);
 
     try {
         con.query(query, function (err, result, fields) {
@@ -77,4 +87,4 @@ function Home (req,res){
     return res.status(200).json("H");
 }
 
-module.exports = { GetNews, Login, Home, GetUserActivities, GetFilesList};
+module.exports = { GetNews, Login, Home, GetUserActivities, GetFilesList, GetUserDatasetsMetadata};

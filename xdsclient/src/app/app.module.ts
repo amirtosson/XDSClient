@@ -27,6 +27,7 @@ import { UserDatasetsComponent } from './user/user-datasets/user-datasets.compon
 import { UserSavedDatasetsComponent } from './user/user-saved-datasets/user-saved-datasets.component';
 import { GeneralLandingPageComponent } from './general/landing-page/general-landing-page/general-landing-page.component';
 import { MembersComponent } from './general/members/members.component';
+import { EditDatasetDetailsComponent } from './dataset/edit-dataset-details/edit-dataset-details.component';
 
 
 
@@ -49,7 +50,8 @@ import { MembersComponent } from './general/members/members.component';
     UserDatasetsComponent,
     UserSavedDatasetsComponent,
     GeneralLandingPageComponent,
-    MembersComponent
+    MembersComponent,
+    EditDatasetDetailsComponent
   ],
   imports: [
     BrowserModule,
