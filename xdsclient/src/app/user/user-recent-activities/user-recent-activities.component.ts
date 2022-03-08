@@ -9,9 +9,10 @@ import { UserDataServerFunctions } from "../../servercommunications/user-data-se
 export class UserRecentActivitiesComponent implements OnInit {
 
   constructor() { }
-  userId = "";
+  userId = localStorage.getItem('userID');
   ngOnInit(): void {
-    UserDataServerFunctions.UserActivities()
+   
+    UserDataServerFunctions.UserActivities(Number(this.userId))
     .then
     (
       res => 

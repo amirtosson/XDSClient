@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HomePageComponent } from './home-page.component';
+import { XpcsDashboardComponent } from './xpcs-dashboard.component';
 
-describe('HomePageComponent', () => {
-  let component: HomePageComponent;
-  let fixture: ComponentFixture<HomePageComponent>;
+describe('XpcsDashboardComponent', () => {
+  let component: XpcsDashboardComponent;
+  let fixture: ComponentFixture<XpcsDashboardComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HomePageComponent ]
+      declarations: [ XpcsDashboardComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HomePageComponent);
+    fixture = TestBed.createComponent(XpcsDashboardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

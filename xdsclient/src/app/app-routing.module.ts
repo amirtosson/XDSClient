@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomePageComponent } from './user/home-page/home-page.component';
+import { UserDashboardComponent } from './user/user-dashboard/user-dashboard.component';
 import { SignUpPageComponent } from './user/sign-up-page/sign-up-page.component';
 import { LoginPageComponent } from './user/login-page/login-page.component';
 import {UserProfilePageComponent} from "./user/user-profile-page/user-profile-page.component"
@@ -19,7 +19,7 @@ export const appRoutes: Routes = [
   },
 
   {
-      path: 'userdashboard', component: HomePageComponent
+      path: 'userdashboard', component: UserDashboardComponent
   },
   {
     path: 'home', component: GeneralLandingPageComponent

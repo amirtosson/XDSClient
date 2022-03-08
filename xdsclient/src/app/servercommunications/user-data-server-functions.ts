@@ -2,7 +2,6 @@ import { User } from '../Models/userModel/user.model';
 
 
 export class UserDataServerFunctions {
-  static loggedInUserID = 0;
   constructor() { }
   static getData = async(url = '', userData: User) => {
     const response = await fetch(url, {
@@ -42,7 +41,7 @@ export class UserDataServerFunctions {
     return res;
   }
 
-  static async UserActivities() 
+  static async UserActivities(userId: Number) 
   {
     const response = await fetch
     (
@@ -53,18 +52,17 @@ export class UserDataServerFunctions {
             'Content-Type':'application/json', 
             'Access-Control-Allow-Origin': '*'
           }, 
-        body: JSON.stringify({'user_id':this.loggedInUserID})                  
+        body: JSON.stringify({'user_id':userId})                  
       }
     );
     
     const res = await response.json();
-    console.log(res);
     return res;
   }
 
-  static async UserDatasets() 
+  static async UserDatasets(userId: Number) 
   {
-    console.log(this.loggedInUserID);
+    
     const response = await fetch
     (
       'http://141.99.126.56:3000/userdatasets', 
@@ -74,7 +72,7 @@ export class UserDataServerFunctions {
             'Content-Type':'application/json', 
             'Access-Control-Allow-Origin': '*'
           }, 
-        body: JSON.stringify({'user_id':this.loggedInUserID})                  
+        body: JSON.stringify({'user_id':userId})                  
       }
     );
     
@@ -83,9 +81,8 @@ export class UserDataServerFunctions {
     return res;
   }
 
-  static async UserDatasetsMetadata() 
+  static async UserDatasetsMetadata(userId: Number) 
   {
-    console.log(this.loggedInUserID);
     const response = await fetch
     (
       'http://141.99.126.56:3000/userdatasetsmetadata', 
@@ -95,7 +92,7 @@ export class UserDataServerFunctions {
             'Content-Type':'application/json', 
             'Access-Control-Allow-Origin': '*'
           }, 
-        body: JSON.stringify({'user_id':this.loggedInUserID})                  
+        body: JSON.stringify({'user_id':userId})                  
       }
     );
     

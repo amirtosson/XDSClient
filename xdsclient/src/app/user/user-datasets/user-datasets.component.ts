@@ -12,10 +12,11 @@ import { Router } from '@angular/router';
 export class UserDatasetsComponent implements OnInit {
 
   constructor(private router: Router) { }
+  userId = localStorage.getItem('userID');
   filesArr = Array();
   metadataArr = Array();
   ngOnInit(): void {
-    UserDataServerFunctions.UserDatasets()
+    UserDataServerFunctions.UserDatasets(Number(this.userId))
     .then
     (
       res => 
@@ -28,7 +29,7 @@ export class UserDatasetsComponent implements OnInit {
       }
     );
 
-    UserDataServerFunctions.UserDatasetsMetadata()
+    UserDataServerFunctions.UserDatasetsMetadata(Number(this.userId))
     .then
     (
       res => 

@@ -1,0 +1,107 @@
+
+<div class="content-area">
+    <aside (click)="NavItemClicked($event)">
+        <nav>
+            <hr>
+            <a class="nav-title">
+                <i class="material-icons">
+                    info
+                </i>
+            </a>
+            <hr>
+            <a  id="info-home" class="nav-link active">
+                <i  class="material-icons">
+                    home
+                </i>
+                <span > Home</span>
+            </a>
+            <a id="info-xpcs" class="nav-link">
+                <i class="material-icons">
+                    flare
+                </i>
+                <span> XPCS</span>
+            </a>
+            <a id="info-gisaxs" class="nav-link">
+                <i class="material-icons">
+                    layers
+                </i>
+                <span> GISAXS</span>
+            </a>
+            <hr>
+            <a class="nav-title">
+                <i class="material-icons">
+                    search
+                </i>
+            </a>
+            <hr>
+            <!-- <a id="find-user" class="nav-link">
+                <i class="material-icons">
+                    person_search
+                </i>
+                <span> User</span>
+            </a>
+            <a id="find-dataset"  class="nav-link">
+                <i class="material-icons">
+                    query_stats
+                </i>
+                <span> Dataset</span>
+            </a>
+            <a id="find-publication"  class="nav-link">
+                <i class="material-icons">
+                    find_in_page
+                </i>
+                <span> Publication</span>
+            </a> -->
+            <hr>
+            <a class="nav-title">
+                <i class="material-icons">
+                    add
+                </i>
+            </a>
+            <hr>
+            <a id="add-dataset" class="nav-link">
+                <i class="material-icons">
+                    upload_file
+                </i>
+                <span> Dataset</span>
+            </a>
+            <a id="add-publication" class="nav-link">
+                <i class="material-icons">
+                    note_add
+                </i>
+                <span> Publication</span>
+            </a>
+            <a id="add-function" class="nav-link">
+                <i class="material-icons">
+                    smart_button
+                </i>
+                <span> Function</span>
+            </a>
+        </nav>
+    </aside>
+    <main>
+       <app-general-info-dashboard id="info-home-main" class="is-shown">
+
+       </app-general-info-dashboard>
+       <app-gisaxs-dashboard id="info-gisaxs-main" class="is-hidden">
+
+       </app-gisaxs-dashboard>
+       <app-xpcs-dashboard id="info-xpcs-main" class="is-hidden">
+
+        </app-xpcs-dashboard>
+
+
+        <app-add-new-dataset-dashboard id="add-dataset-main" class="is-hidden">
+
+        </app-add-new-dataset-dashboard>
+        <app-add-new-function-dashboard id="add-function-main" class="is-hidden">
+
+        </app-add-new-function-dashboard>
+        <app-add-new-publication-dashboard id="add-publication-main" class="is-hidden">
+
+        </app-add-new-publication-dashboard>
+    
+    </main>
+
+      
+</div>

@@ -11,6 +11,7 @@ export class GeneralLandingPageComponent implements OnInit {
 
   constructor(private AppComponent: AppComponent) {
     this.AppComponent.UpdateMenuItems();
+    this.AppComponent.UpdateHeaderItems(true);
    }
 
   ngOnInit(): void {

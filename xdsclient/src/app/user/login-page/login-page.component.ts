@@ -16,7 +16,8 @@ export class LoginPageComponent implements OnInit {
 
   ngOnInit(): void 
   {
-
+    localStorage.setItem('isLogged', "false");
+    localStorage.setItem('userID', "0");
   }
 
   onSignIn(){
@@ -30,8 +31,8 @@ export class LoginPageComponent implements OnInit {
       res => 
       {
         if (res.status == 200) {
-          UserDataServerFunctions.loggedInUserID = res.user_id;
-          UserSharedDetails.loggedInUser = true;
+          localStorage.setItem('isLogged', "true");
+          localStorage.setItem('userID', res.user_id);
           this.router.navigateByUrl('/userprofile');
         } 
         else 

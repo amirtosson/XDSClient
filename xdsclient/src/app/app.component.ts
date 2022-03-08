@@ -14,21 +14,23 @@ export class AppComponent {
 
   title = 'xdsclient';
   static IsUserSigned = false;
-  constructor() { }
+  constructor() { 
+    //localStorage.setItem('isLogged', "false");
+  }
 
   UpdateMenuItems()
   {
-    console.log(UserSharedDetails.loggedInUser)
-    if (UserSharedDetails.loggedInUser) {
+    var isLogged =  localStorage.getItem('isLogged')
+    if (isLogged === "true") {
       this.headerBarUMItems = [];
     var newItem = new XDSHeaderbarDropMenuItem;
     newItem.Name = 'Your profile';
-    newItem.RouterLink = '#';
+    newItem.RouterLink = '/userprofile';
     newItem.Button = 'fa fa-user';
     this.headerBarUMItems.push(newItem);
     var newItem = new XDSHeaderbarDropMenuItem;
     newItem.Name = 'Sign-out';
-    newItem.RouterLink = '#';
+    newItem.RouterLink = '/login';
     newItem.Button = 'fa fa-sign-out';
     this.headerBarUMItems.push(newItem);
     } else {
@@ -40,5 +42,17 @@ export class AppComponent {
       this.headerBarUMItems.push(newItem);
     }
    
+  }
+
+  UpdateHeaderItems(isLanding:boolean){
+    var el = document.getElementById("nav-landing") as HTMLDivElement;
+    var el2 = document.getElementById("nav-other") as HTMLDivElement;
+    if (isLanding) {
+      el2.style.display = "none"
+      el.style.display = "block"
+    } else {
+      el.style.display = "none"
+      el2.style.display = "block"
+    }
   }
 }

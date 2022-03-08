@@ -11,19 +11,21 @@ import { XDSHeaderbarDropMenuItem } from "../../../assets/components/xds-headerb
   styleUrls: ['./user-profile-page.component.css']
 })
 
-export class UserProfilePageComponent implements AfterViewInit {
+export class UserProfilePageComponent implements OnInit {
   extraCreature!: string;
   public headerBarUMItems: XDSHeaderbarDropMenuItem[] = [];
   constructor(private AppComponent: AppComponent) 
   { 
     AppComponent.UpdateMenuItems();
   }
-  @ViewChildren(UserDatasetsComponent)datasets!:QueryList<UserDatasetsComponent>;
-  @ViewChildren(UserRecentActivitiesComponent)recentActivities!:QueryList<UserRecentActivitiesComponent>;
-  @ViewChildren(UserSavedDatasetsComponent)savedDatastes!:QueryList<UserSavedDatasetsComponent>;
+  
+  ngOnInit(){
+    var tab_content = document.getElementById("tab1c") as HTMLDivElement;
+    tab_content.style.display = "block"
+  }
 
 
-  RecentActivities($event: { target: any; })
+  TabItemClicked($event: { target: any; })
   {
     var elements_active = Array.from(document.getElementsByClassName('nav-item xds-active') as HTMLCollectionOf<HTMLElement>)
 
@@ -41,11 +43,6 @@ export class UserProfilePageComponent implements AfterViewInit {
     var tab_content = document.getElementById(id+"c") as HTMLDivElement;
     tab_content.style.display = "block"
 
-  }
-
-  ngAfterViewInit() {
-    var tab_content = document.getElementById("tab1c") as HTMLDivElement;
-    tab_content.style.display = "block"
   }
 
 }
