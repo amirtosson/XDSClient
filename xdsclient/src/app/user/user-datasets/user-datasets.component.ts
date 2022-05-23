@@ -11,11 +11,15 @@ import { Router } from '@angular/router';
 })
 export class UserDatasetsComponent implements OnInit {
 
+  hasRawData = false
+  hasMetaData = false
+  hasReadMe = false
   constructor(private router: Router) { }
   userId = localStorage.getItem('userID');
   filesArr = Array();
   metadataArr = Array();
   ngOnInit(): void {
+    this.CloseAll()
     UserDataServerFunctions.UserDatasets(Number(this.userId))
     .then
     (
@@ -38,6 +42,17 @@ export class UserDatasetsComponent implements OnInit {
         for (const value of iterator) { 
           var x = new XDSDatasetItem();
           x = value;
+          console.log(x.hasreadme)
+          if (x.hasmetadata === 1) {
+            this.hasMetaData = true
+          } 
+          if (x.hasrawdata === 1) {
+            this.hasRawData = true
+          } 
+          if (x.hasreadme === 1) {
+            this.hasReadMe = true
+          } 
+
           this.metadataArr.push(x);
         }
       }
@@ -45,7 +60,9 @@ export class UserDatasetsComponent implements OnInit {
       
     );
   }  
+
   InfoFunctionBtnClicked(i:any){
+    this.CloseAll()
     console.log(this.metadataArr[i]);
     var ele = document.getElementById(this.metadataArr[i].dataset_name) as HTMLDivElement;
     ele.style.display = "flex"
@@ -69,7 +86,18 @@ export class UserDatasetsComponent implements OnInit {
 
   CloseDetailClicked(i:any){
     var ele = document.getElementById(this.metadataArr[i].dataset_name) as HTMLDivElement;
-    ele.style.display = "none"
+    ele.style.display = "none";
 
   }
+
+  CloseAll(){
+    var eles = document.getElementsByClassName("dataset-details") as HTMLCollectionOf<HTMLDivElement>;
+
+    for (var i = 0; i < eles.length; i++) {
+      eles[i].style.display = "none";
+    }
+    
+  }
 }
+
+

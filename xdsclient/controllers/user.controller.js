@@ -65,6 +65,7 @@ function Login (req,res)
 
         con.query(query, function (err, result, fields) {
         if (result[0] === undefined ) {
+
             res.json(
                 { 
                     "status": 404,
@@ -76,7 +77,10 @@ function Login (req,res)
             (
                 { 
                     "status": 200,
-                    "user_id": result[0].id  
+                    "user_id": result[0].id,
+                    "first_name": result[0].firstname,
+                    "last_name":result[0].lastname
+                     
                 }
             );
         }

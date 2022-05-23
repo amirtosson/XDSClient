@@ -33,6 +33,8 @@ export class LoginPageComponent implements OnInit {
         if (res.status == 200) {
           localStorage.setItem('isLogged', "true");
           localStorage.setItem('userID', res.user_id);
+          localStorage.setItem('userFirstName', res.first_name);
+          localStorage.setItem('userLastName', res.last_name);
           this.router.navigateByUrl('/userprofile');
         } 
         else 

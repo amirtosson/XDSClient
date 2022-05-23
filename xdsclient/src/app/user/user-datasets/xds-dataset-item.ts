@@ -7,4 +7,7 @@ export class XDSDatasetItem {
     summery  = '';
     added_date  = '';
     days  = 0;
+    hasreadme = 0;
+    hasrawdata = 0;
+    hasmetadata = 0;
 }

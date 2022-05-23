@@ -31,14 +31,14 @@ export class AppComponent {
     var newItem = new XDSHeaderbarDropMenuItem;
     newItem.Name = 'Sign-out';
     newItem.RouterLink = '/login';
-    newItem.Button = 'fa fa-sign-out';
+    newItem.Button = "fa fa-sign-out";
     this.headerBarUMItems.push(newItem);
     } else {
       this.headerBarUMItems = [];
       var newItem = new XDSHeaderbarDropMenuItem;
       newItem.Name = 'Sign-In';
-      newItem.RouterLink = 'login';
-      newItem.Button = 'fa fa-sign-in';
+      newItem.RouterLink = '/login';
+      newItem.Button = "fa fa-sign-in";
       this.headerBarUMItems.push(newItem);
     }
    

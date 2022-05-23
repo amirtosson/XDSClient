@@ -14,14 +14,20 @@ import { XDSHeaderbarDropMenuItem } from "../../../assets/components/xds-headerb
 export class UserProfilePageComponent implements OnInit {
   extraCreature!: string;
   public headerBarUMItems: XDSHeaderbarDropMenuItem[] = [];
+  fn = '';
+  ln = '';
   constructor(private AppComponent: AppComponent) 
   { 
     AppComponent.UpdateMenuItems();
   }
   
+
+
   ngOnInit(){
     var tab_content = document.getElementById("tab1c") as HTMLDivElement;
-    tab_content.style.display = "block"
+    tab_content.style.display = "block";
+    this.fn =  localStorage.getItem('userFirstName') as string;
+    this.ln =  localStorage.getItem('userLastName') as string;
   }
 
 

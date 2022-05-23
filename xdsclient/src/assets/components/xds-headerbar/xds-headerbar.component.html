@@ -29,7 +29,7 @@
     </button>
     <div id="userMenuContents" class="dropdown-content" style="display: none;">
       <div class="dropdown">
-        <a *ngFor="let item of headerUMItems"  [class]="item.Button" [href]="item.RouterLink"  >
+        <a *ngFor="let item of headerUMItems"  [class]="item.Button" [href]="item.RouterLink" aria-hidden="true" >
           <i  >
             {{item.Name}}
           </i>
