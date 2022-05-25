@@ -22,6 +22,38 @@ export class AddNewDatasetDashboardComponent implements OnInit {
     }
   }
 
+  allCardsToDefault(){
+    var eles = document.getElementsByClassName("card") as HTMLCollectionOf<HTMLElement>;
+    for (var i = 0; i < eles.length; i++) {
+      eles[i].classList.remove("card_pressed");
+    }
+  }
+
+  startDetails(){
+    var el2 = document.getElementById("details_section") as HTMLDivElement;
+    el2.classList.remove("disabled");
+    el2.scrollIntoView({behavior: 'smooth'});
+  }
+
+  oneDImageClicked(){
+    this.allCardsToDefault()
+    var el = document.getElementById("1d") as HTMLDivElement;
+    el.classList.add("card_pressed");
+    this.startDetails()
+  }
+  twoDImageClicked(){
+    this.allCardsToDefault()
+    var el = document.getElementById("2d") as HTMLDivElement;
+    el.classList.add("card_pressed");
+    this.startDetails()
+  }
+  threeDImageClicked(){
+    this.allCardsToDefault()
+    var el = document.getElementById("3d") as HTMLDivElement;
+    el.classList.add("card_pressed");
+    this.startDetails()
+  }
+
 
   onSubmit(){
     const formData = new FormData();
