@@ -8,12 +8,12 @@
     <title>X-ray Data science group</title>
 </head>
 
-<body>
-    <section class="main">
+<body (scroll)="onScroll($event)">
+    <section class="main g" (scroll)="onScroll($event)">
         <div>
-            <h2>University of Siegen, Germany<br><span>X-ray data science group</span></h2>
+            <h2>The University of Siegen, Germany<br><span>X-ray Data Science Group</span></h2>
             <h3>We build the digital science</h3>
-            <a (click)="scroll()" class="main-btn">View our projects</a>
+            <button (click)="scroll()" class="main-btn">View our projects</button>
             <div class="social-icons">
                 <a href="#"><i class="fab fa-linkedin"></i></a>
                 <a href="#"><i class="fab fa-twitter"></i></a>
@@ -26,7 +26,7 @@
         </div>
     </section>
 
-    <section class="cards" id="servicesl">
+    <section class="cards g" id="servicesl">
         <h2 class="title">Our interests</h2>
         <div class="content">
             <div class="card">
@@ -61,7 +61,7 @@
             Go to top
         </button>
     </section>
-    <section class="projects" id="projectsl">
+    <section class="projects g" id="projectsl">
         <h2 class="title">Our Services</h2>
         <div class="content">
             <div class="project-card">
@@ -118,7 +118,7 @@
         </button>
     </section>
 
-    <section class="cards"  id="newsl">
+    <section class="cards g"  id="newsl">
         <h2 class="title">Our Latest News</h2>
         <app-xds-news-highlights id="row2"></app-xds-news-highlights>
 
@@ -126,7 +126,10 @@
             Go to top
         </button>
     </section>
-    <section id="membersl">
+    <section class="projects" id="membersl">
+        
+            <app-members></app-members>
+        
         <button (click)="GoToTop()" class="go-to-top-btn">
             Go to top
         </button>

@@ -1,4 +1,4 @@
-nav{
+ nav{
   font-family: 'Poppins', sans-serif;
   margin: 0;
   padding: 0;
@@ -6,8 +6,9 @@ nav{
   scroll-behavior: smooth; 
 }
 
-nav a {
+nav i {
   cursor: pointer;
+
 }
 
 .xds-nave-bar{
@@ -23,10 +24,22 @@ nav a {
   height: 50px;
   border-radius: 25px;
   font-size: 10px;
+  margin-right: 25px;
   text-align: center;
-  color: #3a6cf4;
-  border:1px solid #3a6cf4 ;
+  color: var(--main-color);
+  border:1px solid var(--main-color);
+  transition: 0.7s ease;
+
 }
+
+.btn-circle.btn-md:hover{
+  transform: scale(2);
+  background-color: var(--main-color);
+  color: #f0f0f0;;
+  border:1px solid #f0f0f0;;
+}
+
+
 .dropdown a{
   position: relative;
   display:block;
@@ -49,7 +62,7 @@ nav a {
 }
 
 .dropdown-content a {
-  color: #3a6cf4;
+  color: var(--main-color);
   padding: 12px 16px;
   text-decoration: none;
   display: block;
@@ -58,6 +71,7 @@ nav a {
 }
 
 header {
+  color: var(--main-color);
   height: 90px;
   background-color: #f0f0f0;
   width: 100%;
@@ -66,22 +80,50 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 200px ;
+  padding: 50px 50px 50px 50px ;
 }
 
 .logo img{
-  width: 200px;
-  height: 50px;
+  width: 160px;
+  height: 80px;
+  margin: -50px 50px 0px 25px;
+  transition: 0.7s ease;
 }
 
-.navigation a{
-  color: #3a6cf4;
+.logo img:hover{
+ transform: scale(1.2);
+}
+
+.header-item{
+  
   text-decoration: none;
-  font-size: 1.1em;
-  font-weight: 500;
-  padding-left: 30px;
+  font-size: 30px;
+  font-weight: 10px;
+  padding: 20px;
+  justify-content:center;
+  text-align: center;
+  transition: 0.5s ease-in-out;
+}
+.navigation i div{
+  margin-top: 10px;
+  font-size: .5em;
 }
 
-.navigation a:hover{
-  color: #601cfc;
+.navigation i:hover{
+  background-color: var(--main-color);
+  opacity: 0.7;
+  color: #f0f0f0;
+  transform: rotate(1turn);
+}
+
+.active{
+  background-color: var(--main-color);
+  color: #f0f0f0;
+}
+
+
+.dropdown i span{
+ position:absolute;
+ top:10px;
+ font-size: 0.85rem;
 }

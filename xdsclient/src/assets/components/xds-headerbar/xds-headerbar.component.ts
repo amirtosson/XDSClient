@@ -49,8 +49,30 @@ export class XdsHeaderbarComponent implements OnInit {
     
   }
 
+  DeactivateAll(){
+    var all_eles = document.getElementsByClassName("header-item") as HTMLCollectionOf <HTMLElement>;
+    for (let index = 0; index < all_eles.length; index++) {
+      all_eles[index].classList.remove("active") ;
+      
+    }
+  }
+
+  ActivateHeaderItem(id:string){
+    this.DeactivateAll();
+    if(id != "main"){
+      var main_ele = document.getElementById(id) as HTMLDivElement; 
+      main_ele.classList.add("active");
+    }
+  }
+
   Scroll($event: { target: any; }){
+    this.DeactivateAll();
     var id = $event.target.attributes.id.value
+    
+    
+    var main_ele = document.getElementById(id) as HTMLDivElement; 
+    main_ele.classList.add("active");
+
     var el = document.getElementById(id+"l") as HTMLDivElement; 
     
     //window.scroll(0,el.offsetTop);
@@ -61,6 +83,5 @@ export class XdsHeaderbarComponent implements OnInit {
     });
   
   }
-
-
+ 
 }
