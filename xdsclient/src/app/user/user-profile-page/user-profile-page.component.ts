@@ -4,6 +4,7 @@ import { UserDatasetsComponent } from "../user-datasets/user-datasets.component"
 import { UserSavedDatasetsComponent } from "../user-saved-datasets/user-saved-datasets.component";
 import { AppComponent } from "../../app.component";
 import { XDSHeaderbarDropMenuItem } from "../../../assets/components/xds-headerbar/xds-headerbar-user-menu-item";
+import { HeaderService } from "../../../services/xds-headerbar.service";
 
 @Component({
   selector: 'app-user-profile-page',
@@ -16,7 +17,7 @@ export class UserProfilePageComponent implements OnInit {
   public headerBarUMItems: XDSHeaderbarDropMenuItem[] = [];
   fn = '';
   ln = '';
-  constructor(private AppComponent: AppComponent) 
+  constructor(private AppComponent: AppComponent, private headerService: HeaderService) 
   { 
     AppComponent.UpdateMenuItems();
   }
@@ -24,6 +25,7 @@ export class UserProfilePageComponent implements OnInit {
 
 
   ngOnInit(){
+    this.headerService.setLoggingState(true);
     var tab_content = document.getElementById("tab1c") as HTMLDivElement;
     tab_content.style.display = "block";
     this.fn =  localStorage.getItem('userFirstName') as string;

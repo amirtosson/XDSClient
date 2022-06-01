@@ -30,7 +30,7 @@ export class AddNewDatasetDashboardComponent implements OnInit {
   }
 
   startDetails(){
-    var el2 = document.getElementById("details_section") as HTMLDivElement;
+    var el2 = document.getElementById("data_structure") as HTMLDivElement;
     el2.classList.remove("disabled");
     el2.scrollIntoView({behavior: 'smooth'});
   }
@@ -54,6 +54,11 @@ export class AddNewDatasetDashboardComponent implements OnInit {
     this.startDetails()
   }
 
+  DataStructureDetailsIsReady(){
+    var el2 = document.getElementById("details_section") as HTMLDivElement;
+    el2.classList.remove("disabled");
+    el2.scrollIntoView({behavior: 'smooth'});
+  }
 
   onSubmit(){
     const formData = new FormData();

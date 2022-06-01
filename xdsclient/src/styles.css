@@ -20,3 +20,9 @@
     transition: 0.5s ease;
     border: none;
 }
+
+.main-btn:focus{
+    border: none;
+    outline:1px;
+    outline-color: #fff;
+}

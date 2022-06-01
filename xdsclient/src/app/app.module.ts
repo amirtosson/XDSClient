@@ -35,6 +35,7 @@ import { GeneralInfoDashboardComponent  } from "../assets/components/dashboaerd-
 import { AddNewDatasetDashboardComponent } from "../assets/components/dashboaerd-pages/add-new-dataset-dashboard/add-new-dataset-dashboard.component";
 import { AddNewFunctionDashboardComponent } from "../assets/components/dashboaerd-pages/add-new-function-dashboard/add-new-function-dashboard.component";
 import { AddNewPublicationDashboardComponent } from "../assets/components/dashboaerd-pages/add-new-publication-dashboard/add-new-publication-dashboard.component";
+import { HeaderService } from '../services/xds-headerbar.service';
 
 @NgModule({
   declarations: [
@@ -72,7 +73,7 @@ import { AddNewPublicationDashboardComponent } from "../assets/components/dashbo
     MatTabsModule,
     NgxChartsModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  providers: [HeaderService]
 })
 export class AppModule { }

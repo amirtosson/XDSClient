@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import {UserDataServerFunctions} from "../../../app/servercommunications/user-data-server-functions";
 import { UserSharedDetails } from "../../shared/user.details";
-
+import { XdsHeaderbarComponent } from "../../../assets/components/xds-headerbar/xds-headerbar.component";
+import { HeaderService } from "../../../services/xds-headerbar.service";
 
 
 @Component({
@@ -12,19 +13,20 @@ import { UserSharedDetails } from "../../shared/user.details";
 })
 export class LoginPageComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private headerService: HeaderService) { }
 
   ngOnInit(): void 
   {
     localStorage.setItem('isLogged', "false");
     localStorage.setItem('userID', "0");
+    this.headerService.setLoggingState(false);
   }
 
   onSignIn(){
     var userName = document.getElementById("username-input") as HTMLInputElement;
     var userPassword = document.getElementById("userpwd-input") as HTMLInputElement;
     console.log(userName.value)
-
+    //this.k.ChangeLoggingState()
     UserDataServerFunctions.LoginUser(userName.value,userPassword.value)
     .then
     (

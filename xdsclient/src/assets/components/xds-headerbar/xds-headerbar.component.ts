@@ -1,7 +1,13 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Injectable } from '@angular/core';
 import { XDSHeaderbarItem } from "../xds-headerbar/xds-headerbar-item";
 import { XDSHeaderbarDropMenuItem } from "../xds-headerbar/xds-headerbar-user-menu-item";
 import { Router } from "@angular/router";
+import { HeaderService } from "../../../services/xds-headerbar.service";
+
+@Injectable({
+  providedIn: 'root'
+  })
+
 
 @Component({
   selector: 'app-xds-headerbar',
@@ -9,7 +15,6 @@ import { Router } from "@angular/router";
   styleUrls: ['./xds-headerbar.component.css']
 })
 export class XdsHeaderbarComponent implements OnInit {
-
   x = new XDSHeaderbarItem();
   y= new XDSHeaderbarItem();
   x2 = new XDSHeaderbarDropMenuItem();
@@ -21,11 +26,32 @@ export class XdsHeaderbarComponent implements OnInit {
   @Input()
   public headerUMItems: XDSHeaderbarDropMenuItem[] = [];
 
+  public ChangeLoggingState(isLogged: boolean){
+    
+    var b = document.getElementById("logB") as HTMLDivElement;
+    var bs = document.getElementById("logS") as HTMLDivElement;
+    if (!isLogged) {
+      
+      b.classList.remove("badge-success")
+      b.classList.add("badge-danger")
+      bs.className = "fas fa-ban"
+
+    } else {
+      b.classList.remove("badge-danger")
+      b.classList.add("badge-success")
+      bs.className = "fas fa-check"
+    }
+  }
   
 
-  constructor( private router: Router) { }
+  constructor( private router: Router, private headerService: HeaderService) { }
 
   ngOnInit(): void {
+    this.headerService.isLogged.subscribe(logged => {
+      this.ChangeLoggingState(logged);
+    }
+
+    );
     //this.menu.style.display = "none"
     this.x.Name = "Test"
     this.y.Name = "Test2"
@@ -35,6 +61,21 @@ export class XdsHeaderbarComponent implements OnInit {
     this.x2.Name = "Test2"
     this.y2.Name = "Test22"
     this.x2.RouterLink = "login"
+    var  isLogged = localStorage.getItem('isLogged')
+    var b = document.getElementById("logB") as HTMLDivElement;
+    var bs = document.getElementById("logS") as HTMLDivElement;
+
+    if (isLogged=="false") {
+      
+      b.classList.remove("badge-success")
+      b.classList.add("badge-danger")
+      bs.className = "fas fa-ban"
+
+    } else {
+      b.classList.remove("badge-danger")
+      b.classList.add("badge-success")
+      bs.className = "fas fa-check"
+    }
     //this.headerUMItems.push(this.x2)
     //this.headerUMItems.push(this.y2)
   }
