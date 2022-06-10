@@ -19,7 +19,8 @@ export class UserProfilePageComponent implements OnInit {
   ln = '';
   constructor(private AppComponent: AppComponent, private headerService: HeaderService) 
   { 
-    AppComponent.UpdateMenuItems();
+    //AppComponent.UpdateMenuItems();
+    
   }
   
 
@@ -28,8 +29,8 @@ export class UserProfilePageComponent implements OnInit {
     this.headerService.setLoggingState(true);
     var tab_content = document.getElementById("tab1c") as HTMLDivElement;
     tab_content.style.display = "block";
-    this.fn =  localStorage.getItem('userFirstName') as string;
-    this.ln =  localStorage.getItem('userLastName') as string;
+    this.fn =  sessionStorage.getItem('userFirstName') as string;
+    this.ln =  sessionStorage.getItem('userLastName') as string;
   }
 
 
@@ -49,7 +50,7 @@ export class UserProfilePageComponent implements OnInit {
       tab_content_elements[i].style.display = "none"
     }
     var tab_content = document.getElementById(id+"c") as HTMLDivElement;
-    tab_content.style.display = "block"
+    if(tab_content!== null) tab_content.style.display = "block"
 
   }
 

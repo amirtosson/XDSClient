@@ -15,7 +15,7 @@ export class UserDatasetsComponent implements OnInit {
   hasMetaData = false
   hasReadMe = false
   constructor(private router: Router) { }
-  userId = localStorage.getItem('userID');
+  userId = sessionStorage.getItem('userID');
   filesArr = Array();
   metadataArr = Array();
   ngOnInit(): void {
@@ -42,7 +42,6 @@ export class UserDatasetsComponent implements OnInit {
         for (const value of iterator) { 
           var x = new XDSDatasetItem();
           x = value;
-          console.log(x.hasreadme)
           if (x.hasmetadata === 1) {
             this.hasMetaData = true
           } 

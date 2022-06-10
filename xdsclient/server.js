@@ -13,7 +13,8 @@ let storage = multer.diskStorage({
       callBack(null, PATH);
     },
     filename: (req, file, callBack) => {
-      callBack(null, file.fieldname + '-' + Date.now())
+      console.log(req.body)
+      callBack(null, file.originalname.replace(/./, "-") + '-' + Date.now())
     }
   });
 const upload = multer({ storage: storage })
@@ -29,17 +30,18 @@ app.use(bodyparser.urlencoded({
   }));
 app.use(indexRouter);
 
-app.post('/uploadfile',upload.single('file'), (req, res, next) => {
-  const file = req.file;
-  console.log(file.filename);
-  if (!file) {
-    const error = new Error('No File')
-    error.httpStatusCode = 400
-    return next(error)
-  }
-    res.send(file);
-  return res.status(200);
-})
+// app.post('/uploadfile',upload.single('file'), (req, res, next) => {
+//   const file = req.file;
+  
+//   console.log(file.filename);
+//   if (!file) {
+//     const error = new Error('No File')
+//     error.httpStatusCode = 400
+//     return next(error)
+//   }
+//     res.send(file);
+//   return res.status(200);
+// })
 //app.use(express.static(process.cwd()+"/dist/xdsclient/"));
 
 // app.get('/', function (req, res) {

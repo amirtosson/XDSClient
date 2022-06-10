@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { HeaderService } from "../../../services/xds-headerbar.service";
 @Component({
   selector: 'app-user-dashboard',
   templateUrl: './user-dashboard.component.html',
@@ -7,11 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserDashboardComponent implements OnInit {
 
-  constructor() { }
+  constructor(private headerService: HeaderService) { }
 
 
   ngOnInit(): void {
-
+    this.headerService.setLoggingState(true);
   }
   NavItemClicked($event: { target: any; }){
 

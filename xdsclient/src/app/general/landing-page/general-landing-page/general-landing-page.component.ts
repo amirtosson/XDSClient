@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AppComponent } from "../../../app.component";
 import { HostListener } from '@angular/core';
+import { HeaderService } from "../../../../services/xds-headerbar.service";
+import { AppComponent } from "../../../app.component";
 
 @Component({
   selector: 'app-general-landing-page',
@@ -11,9 +12,9 @@ import { HostListener } from '@angular/core';
 
 export class GeneralLandingPageComponent implements OnInit {
   ;
-  constructor(private AppComponent: AppComponent) {
-    this.AppComponent.UpdateMenuItems();
-    this.AppComponent.UpdateHeaderItems(true);
+  constructor(private AppComponent: AppComponent,private headerService: HeaderService) {
+    this.headerService.setLoggingState(true)
+    this.headerService.setHeaderBarItems(true)
    }
 
   ngOnInit(): void {

@@ -17,26 +17,24 @@ export class LoginPageComponent implements OnInit {
 
   ngOnInit(): void 
   {
-    localStorage.setItem('isLogged', "false");
-    localStorage.setItem('userID', "0");
+    sessionStorage.clear()
     this.headerService.setLoggingState(false);
   }
 
   onSignIn(){
     var userName = document.getElementById("username-input") as HTMLInputElement;
     var userPassword = document.getElementById("userpwd-input") as HTMLInputElement;
-    console.log(userName.value)
-    //this.k.ChangeLoggingState()
     UserDataServerFunctions.LoginUser(userName.value,userPassword.value)
     .then
     (
       res => 
       {
         if (res.status == 200) {
-          localStorage.setItem('isLogged', "true");
-          localStorage.setItem('userID', res.user_id);
-          localStorage.setItem('userFirstName', res.first_name);
-          localStorage.setItem('userLastName', res.last_name);
+          sessionStorage.setItem('isLogged', "true");
+          sessionStorage.setItem('userID', res.user_id);
+          sessionStorage.setItem('userFirstName', res.first_name);
+          sessionStorage.setItem('userLastName', res.last_name);
+          sessionStorage.setItem('user_token', res.user_token)
           this.router.navigateByUrl('/userprofile');
         } 
         else 

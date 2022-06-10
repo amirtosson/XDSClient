@@ -6,6 +6,7 @@ import { LoginPageComponent } from './user/login-page/login-page.component';
 import {UserProfilePageComponent} from "./user/user-profile-page/user-profile-page.component"
 import { GeneralLandingPageComponent } from "./general/landing-page/general-landing-page/general-landing-page.component";
 import {EditDatasetDetailsComponent  } from "./dataset/edit-dataset-details/edit-dataset-details.component";
+import { AuthGuardGuard } from './guard/auth-guard.guard';
 
 export const appRoutes: Routes = [
   {
@@ -19,7 +20,7 @@ export const appRoutes: Routes = [
   },
 
   {
-      path: 'userdashboard', component: UserDashboardComponent
+      path: 'userdashboard', component: UserDashboardComponent, canActivate:[AuthGuardGuard]
   },
   {
     path: 'home', component: GeneralLandingPageComponent
@@ -29,11 +30,11 @@ export const appRoutes: Routes = [
   },
 
   {
-      path: 'userprofile', component: UserProfilePageComponent,
+      path: 'userprofile', component: UserProfilePageComponent, canActivate:[AuthGuardGuard]
      
   },
   {
-    path: 'editdataset', component: EditDatasetDetailsComponent,
+    path: 'editdataset', component: EditDatasetDetailsComponent, canActivate:[AuthGuardGuard]
    
   }
 ];

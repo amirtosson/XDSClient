@@ -37,44 +37,49 @@
 <section id="details_section" class="disabled">
   <hr class="rounded">
   <h2 class="title">Dataset details</h2>
-  <form class="formstyle">
+  <form id="details-form" class="formstyle" onsubmit="return false">
     <div class="form-group">
-      <label for="exampleDropdownFormEmail2">Dataset Name *</label>
-      <input type="email" class="form-control" placeholder="dataset_name">
+      <label for="">Dataset Name *</label>
+      <input type="text" class="form-control" required="required" pattern="[A-Za-z0-9]{1,20}" placeholder="dataset_name">
     </div>
     <div class="form-group">
-      <label for="exampleDropdownFormEmail2">Method *</label>
-      <input type="email" class="form-control"  placeholder="XPCS">
+      <label for="methods">Method *</label>
+      <select name="methods" id="methods" class="form-control">
+        <option value="GISAXS">GISAXS</option>
+        <option value="XPCS">XPCS</option>
+        <option value="Magnatism">Magnatism</option>
+      </select>
     </div>
     <div class="form-group">
-      <label for="exampleDropdownFormPassword2">Radiation Facility * </label>
-      <input type="text" class="form-control"  placeholder="DESY">
+      <label for="">Radiation Facility * </label>
+      <input type="text" class="form-control" required="required" pattern="[A-Za-z0-9]{1,20}" placeholder="DESY">
     </div>
     <div class="form-group">
-      <label for="exampleDropdownFormPassword2">Experiment Date * </label>
-      <input type="date" class="form-control"  placeholder="01.01.1900">
+      <label for="">Experiment Date * </label>
+      <input type="date" class="form-control" required="required" pattern="[A-Za-z0-9]{1,20}" placeholder="01.01.1900">
     </div>
     <div class="form-group">
-      <label for="exampleDropdownFormPassword2">Sample Discription * </label>
-      <input type="text" class="form-control"  placeholder="SiO4 solution with H2O ">
+      <label for="">Sample Discription * </label>
+      <input type="text" class="form-control" required="required" pattern="[A-Za-z0-9]{1,20}" placeholder="SiO4 solution with H2O ">
     </div>
     <div class="form-group">
-      <label for="exampleDropdownFormPassword2">Notes </label>
+      <label for="">Notes </label>
       <input type="text" class="form-control"  placeholder="notes">
     </div>
+    <div style="text-align: center">
+      <button type="submit" class="main-btn" (click)="DataDetailsAreReady()"> Next</button>
+    </div>
   </form>
-  <div style="text-align: center">
-    <button class="main-btn" >Next</button>
-  </div>
+
 </section>
 
 
 
-<section class="disabled">
+<section id="upload-section" class="disabled">
   <hr class="rounded">
   <div style="text-align: center">  
       <div>
-        <input type="file" name="image" (change)="selectFile($event)"/>
+        <input type="file" id="upload-file" (change)="selectFile($event)"/>
       </div>
       <br>
       <div>

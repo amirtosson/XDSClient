@@ -5,15 +5,13 @@
         <div class="dataset-name">
             <ul class="list-group" >
                 <li class="list-group-item">  {{data.dataset_name}} 
-                    <span [ngClass]="hasMetaData? 'material-icons green' : 'material-icons red'">
-                        monitoring        
-                    </span>
-                    <span [ngClass]="hasReadMe? 'material-icons green' : 'material-icons red'">
-                        description
-                    </span>
-                    <span [ngClass]="hasRawData? 'material-icons green' : 'material-icons  red'">
-                        database
-                    </span>
+                    <i [ngClass]="hasReadMe? 'fas fa-glasses green' : 'fas fa-glasses red'">
+                    </i>
+                    <i [ngClass]="hasMetaData? '	fas fa-file-alt green' : '	fas fa-file-alt red'">       
+                    </i>
+
+                    <i [ngClass]="hasRawData? 'fas fa-database green' : 'fas fa-database  red'">
+                    </i>
                 </li>
             </ul>  
         </div>

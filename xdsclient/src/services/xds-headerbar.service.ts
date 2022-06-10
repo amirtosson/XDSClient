@@ -3,12 +3,17 @@ import { BehaviorSubject } from 'rxjs';
 
 @Injectable()
 export class HeaderService {
-  public title = new BehaviorSubject('Title');
   public isLogged = new BehaviorSubject(false);
+  public isLanding = new BehaviorSubject(false);
+
 
   constructor() { }
 
   setLoggingState(isLogged:boolean) {
     this.isLogged.next(isLogged);
+  }
+
+  setHeaderBarItems(isLanding:boolean) {
+    this.isLanding.next(isLanding);
   }
 }

@@ -10,8 +10,6 @@ export class NewsDatServerFunctions {
         } 
       });
     const news = await response.json();
-
-    console.log(news);
     return news;
   }
 };
