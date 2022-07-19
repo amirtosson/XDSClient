@@ -1,0 +1,102 @@
+.grid {
+    display: grid;
+    grid-template-columns: repeat(1, 2fr);
+    grid-gap: 30px;
+  }
+ 
+
+.grid > article {
+    background-color: #f0f0f0;
+    min-height: 200px;
+    align-items: center;
+    padding: 5px;
+
+  }
+   
+  .info-style {
+    background-color: #f0f0f0;
+    min-height: 200px;
+    align-items: center;
+    display: flex;
+  }
+   
+
+  .content-area.grid > article:last-child,
+  .content-area .grid > article:first-child {
+    grid-column: 1 / -1;
+  }
+  .averageRatingDiv{
+	width:120px;
+	height:120px;
+    align-items: center;;
+	border-radius:120px;
+    border: 4px solid saddlebrown;
+	text-align:center;
+    align-content: center;
+	box-shadow: 2px 2px 3px #999;
+}
+.numbers-circle{
+    padding: 15px; 
+    font-size: 38pt; 
+    font-weight: bolder;
+}
+.card {
+    background-color: #fff;
+    width: 200px;
+    box-shadow: 0 5px 25px rgba(1 1 1 / 15%);
+    border-radius: 10px;
+    padding: 5px;
+    margin: 5px;
+    align-content: center;
+    align-items: center;;
+}
+
+
+
+.software-content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.software-card {
+    background-color: #fff;
+    border: 1px solid #fff;
+    min-height: 14em;
+    width: 15em;
+    overflow: hidden;
+    border-radius: 10px;
+    margin: 20px;
+    transition: 0.7s ease;
+}
+
+
+.software-card:hover {
+    transform: scale(1.1);
+ }
+ 
+ .software-card:hover .software-image {
+     opacity: 0.6;
+     cursor: pointer;
+  }
+ 
+ .software-image img{
+     width: 100%;
+     height: 30%;
+ }
+ 
+ .software-info {
+     padding: 1em;
+ }
+ .software-category {
+    font-size: 0.8em;
+    color: #000;
+}
+
+.softwar-title {
+    display: flex;
+    justify-content: space-between;
+    text-transform: uppercase;
+    font-weight: 800;
+    margin-top: 10px;
+}

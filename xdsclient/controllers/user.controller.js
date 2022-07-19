@@ -1,8 +1,10 @@
 //var passport = require('passport');
+var request = require('request');
 var mysql = require('mysql');
 const path = require('path');
 const fs = require('fs');
 const token = require('../config/jwtHelper')
+const pythonServer = require('../python_server_controllers/python-main.controller')
 
 
 
@@ -122,9 +124,33 @@ function Login (req,res)
     }
 }
 
-function Home (req,res){ 
-   
-    return res.status(200).json("H");
+
+
+async function Home (req,res){ 
+    //request.post('http://127.0.0.1:5000/pythonTest/'+req.body.data_id)
+
+    // let a =  request.post(
+    //     'http://127.0.0.1:5000/pythonTest/'+req.body.data_id,
+    //     async function (error, res, body) {
+    //         if (!error && res.statusCode == 200) {
+    //             console.log(body);
+    //             return res.json("H");
+    //         }   
+    //     }
+    // );
+    //t = await  pythonServer.Test(1)
+    //console.log('from amin '+t)
+
+    pythonServer.functionOne(1).then( res4 =>
+        {
+            return res.json({
+                "status": 200,
+                "data":res4
+            }
+                )
+        }
+        
+    )   
 }
 
 function UploadSingleFile(req,res, next)
@@ -146,7 +172,6 @@ function UploadSingleFile(req,res, next)
     + "\"" +name_parts[5]+ "\""+ "," 
     + "\"" +name_parts[6]+ "\""+");" 
 
-    console.log(query)
     try {
         con.query(query, function (err, result, fields) {
     });

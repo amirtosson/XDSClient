@@ -1,0 +1,48 @@
+canvas{
+    margin-top: 10px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    margin-left: 40%;
+  }
+  
+  li {
+    float:left;
+  }
+
+  .scene-details label{
+    margin: 5px;
+    font-size: larger;
+    font-weight: bold;
+  }
+  .scene-details{
+    display: none;
+    border-radius: 5px;
+    background-color: white;
+    padding: 10px;
+    text-align: center;
+    margin-bottom: 20px;
+    height: fit-content;
+  }
+  .scene-details .function-button{
+    float: right;
+    margin-top: -5px;
+  }
+
+  .hidden{
+    display: none;
+  }
+
+  .shown{
+    display: block;
+  }
+
+  .setting{
+    padding: 25px;
+    margin: 5px;
+    background-color: white;
+  }

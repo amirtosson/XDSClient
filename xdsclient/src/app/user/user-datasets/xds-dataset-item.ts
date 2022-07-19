@@ -1,4 +1,5 @@
 export class XDSDatasetItem {
+    dataset_ID = -1;
     owner_id = 0;
     dataset_name = '';
     method_name = '';

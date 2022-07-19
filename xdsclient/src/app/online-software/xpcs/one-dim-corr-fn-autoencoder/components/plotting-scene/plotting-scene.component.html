@@ -1,0 +1,99 @@
+
+<ul>
+    <li>
+        <div class="function-button" (click)="OpenPlottingSceneDetails()">
+            <i id="icon" class="material-icons" >add</i>   
+        </div>
+    </li>
+    <li>
+        <div class="function-button">
+            <i id="icon" class="material-icons"(click)="RemoveAllScenes()">delete</i>   
+        </div>
+    </li>
+  </ul>
+
+<div class="scene-details" id="scene-details">
+    <label for="scene-name">Scene Name</label>
+    <input type="text" id="scene-name" placeholder="myscene" required>
+    <div class="function-button">
+        <i id="icon" class="material-icons" (click)="ClosePlottingSceneDetails()">close</i> 
+    </div>  
+    <div class="function-button">
+        <i id="icon" class="material-icons" (click)="AddNewPlottingScene()">done</i> 
+    </div>
+</div>
+
+
+<div id="charts-area" class="grid">
+            <div *ngFor="let chart of ChartsScenes; let i = index"  style="width:90%;">
+                <h3>{{chart.name}}</h3>
+                <h5 *ngIf="!chart.isIntialized"> No dataset is connected</h5>
+                <canvas baseChart
+                    id={{chart.name}} 
+                    width="20" 
+                    height="10" 
+                    style="border:1px solid">
+                </canvas>
+                
+                <div  *ngIf="chart.isIntialized" >
+                    <ul>
+                        <li>
+                            <div class="function-button" >
+                                <i id="icon" class="material-icons" (click)="OpenChartSetting(chart.name)">settings</i>   
+                            </div>
+                        </li>
+                        <li>
+                            <div class="function-button">
+                                <i id="icon" class="material-icons">refresh</i>   
+                            </div>
+                        </li>
+                        <li>
+                            <div class="function-button">
+                                <i id="icon" class="material-icons" (click)="CanvasDownload(chart.name)">download</i>   
+                            </div>
+                        </li>
+                    </ul>
+                    <div  id="{{chart.name}}-setting" class="setting hidden">
+                        <hr>
+                        <h2> Colors setting: </h2>
+                        <div>
+                            <div class="row">
+                                <label for="datasets">Choose a dataset:</label>
+                                <select name="datasets" id="datasets">
+                                    <option *ngFor="let ds of chart.data.datasets"  value="{{ds.label}}">{{ds.label}}</option>
+                                </select>
+                                <label  for="color-list">Pick or enter a color:</label>
+                                <ngx-colors name="chart-color-list" id="color-list" ngx-colors-trigger [(ngModel)]="newColor"></ngx-colors>
+                            </div>
+                            
+                        </div>
+                        <div class="row">
+                            <label  for="backgroung-color-list">Pick or enter a color:</label>
+                                <ngx-colors name="color-list" id="color-list" ngx-colors-trigger [(ngModel)]="backGroundColor"></ngx-colors>
+                        </div>
+                        <br>
+                        <button class="main-btn" (click)="Test(chart.name)">Set</button>
+                        <hr>
+                    </div>
+                    <input type="checkbox" id="logscale" name="logscale" value="yes" (change)="onLogScaleCheckboxChange($event)" checked>
+                    <label for="logscale"> Log Scale</label><br>
+                </div>
+                <hr>
+            </div>
+            <!-- <canvas baseChart  
+            [data]="lineChartData"
+            [options]="lineChartOptions"
+            [type]="lineChartType"
+            (chartHover)="chartHovered($event)"
+            (chartClick)="chartClicked($event)"
+            class="canvas"></canvas> -->
+ 
+
+
+        <article>
+
+       
+    </article>
+
+</div>
+

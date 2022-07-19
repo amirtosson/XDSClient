@@ -26,14 +26,12 @@
     height: calc(100vh - 90px);
     background-color: transparent;
     display: flex;
-
-
 }
 
 aside{
     height: 100%;
     width: 180px;
-    background-color: #f0f0f0;
+    background-image: var(--main-gradient);
     overflow-y: auto;
 }
 

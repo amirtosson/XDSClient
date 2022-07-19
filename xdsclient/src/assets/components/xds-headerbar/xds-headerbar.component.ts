@@ -57,7 +57,6 @@ export class XdsHeaderbarComponent implements OnInit {
     }
   }
   
-
   UpdateHeaderItems(isLanding:boolean){
     var el = document.getElementById("nav-landing") as HTMLDivElement;
     var el2 = document.getElementById("nav-other") as HTMLDivElement;

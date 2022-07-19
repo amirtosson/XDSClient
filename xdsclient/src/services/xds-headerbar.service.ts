@@ -5,7 +5,7 @@ import { BehaviorSubject } from 'rxjs';
 export class HeaderService {
   public isLogged = new BehaviorSubject(false);
   public isLanding = new BehaviorSubject(false);
-
+  public name = new BehaviorSubject("");
 
   constructor() { }
 

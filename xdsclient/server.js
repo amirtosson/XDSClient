@@ -3,7 +3,6 @@ const bodyparser = require('body-parser');
 const cors = require('cors');
 const multer = require('multer');
 require('dotenv').config()
-var mysql = require('mysql');
 
 const port = process.env.PORT || 3000;
 

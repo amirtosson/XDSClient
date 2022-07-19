@@ -4,27 +4,32 @@
         <meta charset="utf-8">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+        </script>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-
-
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
-
     </head>
-    <app-xds-headerbar [headerUMItems]="headerBarUMItems" [headerItems]="headerBarItems" ></app-xds-headerbar>
+
+
+    <app-xds-headerbar id="headerbar" [headerUMItems]="headerBarUMItems" [headerItems]="headerBarItems" ></app-xds-headerbar>
     <!-- <app-xds-header-signature style="margin-top: 100px;" ></app-xds-header-signature> -->
 
-<body class=" containerbackground">
-    
-    <div class="container containerm" >
-                <router-outlet></router-outlet>
-                <app-xds-footer-signature></app-xds-footer-signature> 
+    <body class=" containerbackground" id="body">
+        
+        <div class="container containerm" >
+                    <router-outlet></router-outlet>
+                    <app-xds-footer-signature></app-xds-footer-signature> 
 
-    </div>
-    <br> 
+        </div>
+        <br> 
+        <app-xds-footer id="footer"></app-xds-footer>
+    </body>
 
-</body>
-<app-xds-footer></app-xds-footer>
 </html>

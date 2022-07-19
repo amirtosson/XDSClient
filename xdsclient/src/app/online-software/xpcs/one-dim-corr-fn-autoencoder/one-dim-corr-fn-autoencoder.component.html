@@ -1,0 +1,89 @@
+
+<div class="content-area" id="content-area">
+    <aside>
+        <h5>
+            Auto Encoder
+        </h5>
+        <div class="software-thumbnail">
+            <img src="../../../../assets/Images/ae.png">
+        </div>
+        <hr>
+        <nav>
+            <a class="nav-link active">
+                <div>
+                    <i class="fas fa-download"></i>
+                    <span > Data generator</span>
+                </div>
+                <label class="switch">
+                    <input id="data-generator" type="checkbox" checked (click)="ShowHideSection($event)">
+                    <span class="slider round"></span>
+                </label>
+            </a>
+            <hr>
+            <a class="nav-link">
+                <div>
+                    <i class="fa fa-area-chart"></i>
+                    <span> Charts</span>
+                </div>
+                <label class="switch">
+                    <input id="charts" type="checkbox" checked (click)="ShowHideSection($event)">
+                    <span class="slider round"></span>
+                </label>
+            </a>
+            <hr>
+            <a class="nav-link">
+                <div>
+                    <i class="fa fa-table"></i>
+                    <span> Tables</span>
+                </div>
+                <label class="switch">
+                    <input id="tables" type="checkbox" checked (click)="ShowHideSection($event)">
+                    <span class="slider round"></span>
+                </label>
+            </a>
+            <hr>
+            <a class="nav-link">
+                <div>
+                    <i class="fas fa-scroll"></i>
+                    <span> Statistics</span>
+                </div>
+                <label class="switch">
+                    <input id="statistics" type="checkbox" checked (click)="ShowHideSection($event)">
+                    <span class="slider round"></span>
+                </label>
+            </a>
+            <hr>
+        </nav>
+
+    </aside>
+
+    <main>
+        <section id="data-generator-d" class="content-section">
+            <div>
+                <h1>Data Generator APIs <a id="dginfo" class="info-btn fa fa-info" (click)="ShowDetails($event)"></a></h1>
+            </div>
+            <app-generate-data-set></app-generate-data-set>
+            <!-- <button class="main-btn" (click)="GenerateData()">Generate Data</button>
+            <button class="main-btn" (click)="Reset()">Reset</button> -->
+        </section>
+
+        <section id="charts-d" class="content-section">
+            <div>
+                <h1>Charts <a id="chartsinfo" class="info-btn fa fa-info" (click)="ShowDetails($event)"></a></h1>
+            </div>
+            <app-plotting-scene></app-plotting-scene>
+        </section>
+
+        <section id="tables-d" class="content-section">
+            <div>
+                <h1>Tables <a id="tablesinfo" class="info-btn fa fa-info" (click)="ShowDetails($event)"></a></h1>
+            </div>
+        </section>
+        
+        <section id="statistics-d" class="content-section">
+
+        </section>
+    </main>
+</div>
+
+

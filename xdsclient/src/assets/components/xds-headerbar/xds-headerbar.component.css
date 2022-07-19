@@ -56,6 +56,8 @@ nav i {
 }
 .dropdown-content {
   position:absolute;
+  right: 0;
+  top: 90px;
   background-color: #f9f9f9;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
@@ -118,7 +120,7 @@ header {
 
 .active{
   background-color: var(--main-color);
-  color: #f0f0f0;
+  color: #f0f0f0; 
 }
 
 
@@ -127,3 +129,21 @@ header {
  top:10px;
  font-size: 0.85rem;
 }
+
+.row{
+  align-items: center;
+}
+
+.row .header-item{
+  cursor: pointer;
+  margin-right: 30px;
+  transition: 0.7s ease;
+  border: 2px solid black;
+}
+
+.row .header-item:hover{
+  transform: scale(1.5);
+  color: black;
+}
+
+

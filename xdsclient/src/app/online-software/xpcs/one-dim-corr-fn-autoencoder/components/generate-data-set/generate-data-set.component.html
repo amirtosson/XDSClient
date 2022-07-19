@@ -1,0 +1,90 @@
+
+
+<div class="content">
+    
+    <div class="data-content"  id="main">
+        <div *ngFor="let dataset of SimDatasets" class="dataset-card">
+            <i class="fa fa-bar-chart data-icon"></i>
+            <h2>{{dataset.name}}</h2>
+            <p>
+                y = {{dataset.constant}} + {{dataset.beta}} e <sup>({{dataset.gamma}}*t)</sup>
+            </p>
+            <h2>Noise factor: {{dataset.noiseFactor}}</h2>
+            <h2>Size: {{dataset.pure.length}}</h2>
+        <div>
+            <i class="icon-btn fas fa-pen-fancy" (click)="PlotDataset(dataset.name)" >
+
+            </i>
+            <i class="icon-btn fas fa-magic" (click)="DenoiseDataset(dataset.name)">
+                <span class="tooltiptext" >Start denoising</span> 
+            </i>
+            <i class="icon-btn fas fa-trash">
+                <!-- <span class="tooltiptext">Delete</span> -->
+            </i>
+        </div>
+        <div id={{dataset.name}} class="current-charts" style="display: none;" >
+            <h2>Choose a scene</h2>    
+            <a *ngFor="let chart of availableCharts" (click)="PlotOnScene(chart, dataset.ID)">{{chart}}</a>
+        </div>
+        <br>
+        <div class="tags">
+            <div class="scene-tag">
+                <h5> Tag Test
+                    <span class="fa fa-eye"></span>
+                </h5>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    <div class="new-data-button">
+        <i id="icon" class="material-icons" (click)="OpenGenerateDataFlyingForm()">add</i>
+        
+    </div>
+    <div class="new-data-button">
+        <i id="icon" class="material-icons" (click)="RemoveAllDatasets()">delete</i>
+        
+    </div>
+</div>
+    <div class="flying-form container" id="flying-form">   
+        <i class='form-icon far fa-file' style='font-size:60px'></i>
+        <form [formGroup]="newDataForm" class="form-group">
+            <div class="form-input" >
+                <label>Dataset Title:</label>
+                <input formControlName="title" 
+                [ngClass]="(newDataForm.controls.title.touched && !newDataForm.controls.title.valid) || newDataForm.controls.title.errors?.pattern ? 'input-required' : ''"
+                value="myDataset"/>
+                <br>
+                <span>{{newDataForm.controls.title.touched && newDataForm.controls.title.errors?.required ?"This field is required":""}}</span>
+                <span>{{newDataForm.controls.title.errors?.pattern ?"Not Valid (no special characters or spaces)":""}}</span>
+                <br>
+                
+                <p class="equation">
+                    <label>Dataset equation:</label>
+                    y = <input formControlName="constant" value="1"/> + <input formControlName="beta"/>  e <sup>(<input formControlName="gamma"/>*t)</sup>
+                    <br>
+                    <span>
+                        {{
+                            (newDataForm.controls.constant.errors?.required) || 
+                            (newDataForm.controls.beta.errors?.required)||
+                            (newDataForm.controls.gamma.errors?.required)?
+                            "Missing field":""
+                        }}
+                    </span>
+                </p>
+                <br>
+                <label>Noise factor:</label>
+                <input formControlName="noiseFactor" />
+                <br>
+                <label>Dataset size:</label>
+                <input formControlName="numberOfPoints"/>
+            </div>
+            <button type="submit" class="main-btn" (click)="GetDataParas()" [disabled]="!newDataForm.valid">Submit</button>
+            <button type="submit" class="main-btn" (click)="GetDataParasCancel()" >Cancel</button>
+
+        </form>
+      
+    </div>
+</div>
+
+<div class="disable-div" id="dis-div"></div>

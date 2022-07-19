@@ -1,0 +1,245 @@
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  .flying-form{
+    background-color: white;
+    width: auto;
+    min-height: 200px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%,-50%) scale(0.1);
+    visibility: hidden;
+    transition: transform 0.4s, top 0.4s;
+    text-align: center;
+    box-shadow: 4px 4px 4px 4px var(--main-color-low);
+
+  }
+
+  .flying-form-opened{
+    visibility: visible;
+    top: 50%;
+    transform: translate(-50%,-50%) scale(1);
+    opacity: 1;
+    z-index: 100000;
+  }
+
+
+  .disable-div{
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    background-color: white;
+    position: absolute;
+    top:0;
+    left:0;
+    visibility: hidden;
+    filter: blur(4px);
+    opacity: 0.5;
+}
+
+.flying-form i{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display:inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: -50px;
+    background-color: var(--main-color-low);
+    box-shadow: 0 4px 4px var(--main-color);
+    z-index: 1000000;
+}
+
+.new-data-button{
+    height: 50px;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--main-color-low);
+    transition: ease 0.5s;
+    margin: 10px;
+  }
+  .new-data-button i{
+    font-size: 36px;
+    color: black;
+  }
+
+  .new-data-button:hover{
+    cursor: pointer;
+    transform: scale(1.2);
+  }
+
+.content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.data-content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.content .dataset-card {
+    background-color: #fff;
+    border: 1px solid rgb(0, 0, 0);
+    min-height: 100px;
+    width: auto;
+    border-radius: 10px;
+    margin: 10px;
+    padding:4px;  
+    border-radius: 10px;
+    box-shadow: 0 4px 4px var(--main-color);   
+    justify-content: center;
+    text-align: center;
+}
+
+
+.data-content .data-icon{
+    font-size: 50px; 
+    width: 80px; 
+    height: 80px;
+    border-radius:50%;
+    display:inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: -50px;
+    background-color: var(--main-color-low);
+    box-shadow: 0 4px 4px var(--main-color);
+    z-index: 1000000;
+}
+
+.dataset-card h2{
+    text-transform: uppercase;
+    font-size: 1.2em;
+    font-weight: 700; 
+    margin:10px;
+}
+
+.dataset-card p{
+    font-size: 1.2em;
+    font-weight: 700; 
+    margin:10px;
+}
+
+.dataset-card i{
+    font-size: 2.5em;
+    margin:10px;
+    background-color: var(--main-color-low);
+    width: 50px; 
+    height: 50px;
+    transition: 0.7s ease;
+    padding:4px;  
+    border-radius: 10px;
+    box-shadow: 0 4px 4px var(--main-color);   
+}
+
+.dataset-card i:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.icon-btn .tooltiptext {
+    visibility: hidden;
+    width: auto;
+    font-size: 0.6em;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    margin-left: 3px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    transition: 0.7s ease;
+  }
+  
+  .icon-btn:hover .tooltiptext {
+    visibility: visible;
+    animation: fadeIn 1s;
+  }
+
+  .tags{
+    margin-top: 10px;
+    display: flex;
+    flex-direction:column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex;
+    text-align: center;
+  }
+  .scene-tag{
+    background-color: rgb(211, 205, 205);
+    max-width: fit-content;
+    margin: 5px;
+    padding: 2px;
+    border-radius: 10%;
+    height: 32px; 
+
+}
+  .scene-tag span{
+    border-left: 1px solid black;
+    width: 30px;
+    padding: 2px;
+    text-align: center;
+    margin-left: 2px;
+  }
+
+  .scene-tag h5{
+    width: fit-content;
+  }
+  .scene-tag span:hover{
+    cursor: pointer;
+    color: var(--main-color);
+  }
+
+  .current-charts{
+    margin: 3px;
+  }
+
+.current-charts a{
+    font-size: large;
+    border: 1px solid black;
+    height: 30px;
+    padding: 2px;
+    color: black;
+    background-color: var(--main-color-low);
+    float: left;
+    transition: 0.7s ease;
+    margin-left: 5px;
+}
+
+.current-charts a:hover{
+    cursor: pointer;
+    border: #fff;
+    transform: scale(1.2);
+}
+
+.equation input{
+    width: 50px;
+}
+
+.input-required{
+    border: 1px solid red;
+}
+
+.main-btn:disabled:hover{
+    cursor:not-allowed;
+    transform: none;
+    border: none;
+    opacity: 0.4;
+}
+
+.main-btn:disabled{
+    cursor:not-allowed;
+    transform: none;
+    border: none;
+    opacity: 0.4;
+}
