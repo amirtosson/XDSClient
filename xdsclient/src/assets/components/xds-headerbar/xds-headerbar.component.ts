@@ -3,6 +3,7 @@ import { XDSHeaderbarItem } from "../xds-headerbar/xds-headerbar-item";
 import { XDSHeaderbarDropMenuItem } from "../xds-headerbar/xds-headerbar-user-menu-item";
 import { Router } from "@angular/router";
 import { HeaderService } from "../../../services/xds-headerbar.service";
+import { LoggedUserService } from "../../../app/user/user-services/logged-user.service";
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +19,9 @@ export class XdsHeaderbarComponent implements OnInit {
 
   public headerBarItems: XDSHeaderbarItem[] = [];
   public headerBarUMItems: XDSHeaderbarDropMenuItem[] = [];
-
+  isLanding = true
+  isLogged = false
+  loggedUserIm = " "
 
   @Input()
   public headerItems: XDSHeaderbarItem[] = [];
@@ -28,22 +31,19 @@ export class XdsHeaderbarComponent implements OnInit {
 
   public ChangeLoggingState(w: boolean){
     var isLogged =  sessionStorage.getItem('isLogged')
+  
     this.headerUMItems = [];
-    var b = document.getElementById("logB") as HTMLDivElement;
-    var bs = document.getElementById("logS") as HTMLDivElement;
+    
     if (isLogged !== "true") {
-      b.classList.remove("badge-success")
-      b.classList.add("badge-danger")
-      bs.className = "fas fa-ban"
+      this.isLogged = false
       var newItem = new XDSHeaderbarDropMenuItem;
       newItem.Name = 'Sign In';
       newItem.RouterLink = '/login';
       newItem.Button = "fas fa-sign-in-alt";
       this.headerUMItems.push(newItem);
     } else {
-      b.classList.remove("badge-danger")
-      b.classList.add("badge-success")
-      bs.className = "fas fa-check"
+      this.loggedUserIm =this.lUS.GetLoggedUser().userData.img_url
+      this.isLogged = true
       var newItem = new XDSHeaderbarDropMenuItem;
       newItem.Name = 'Your profile';
       newItem.RouterLink = '/userprofile';
@@ -58,19 +58,12 @@ export class XdsHeaderbarComponent implements OnInit {
   }
   
   UpdateHeaderItems(isLanding:boolean){
-    var el = document.getElementById("nav-landing") as HTMLDivElement;
-    var el2 = document.getElementById("nav-other") as HTMLDivElement;
-    if (isLanding) {
-      el2.style.display = "none"
-      el.style.display = "block"
-    } else {
-      el.style.display = "none"
-      el2.style.display = "block"
-    }
+    this.isLanding = isLanding
   }
 
 
-  constructor( private router: Router, private headerService: HeaderService) { }
+  constructor( public lUS: LoggedUserService, 
+            private headerService: HeaderService) { }
 
   ngOnInit(): void {
     this.headerService.isLogged.subscribe(logged => {

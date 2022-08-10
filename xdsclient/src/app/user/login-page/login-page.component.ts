@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import {UserDataServerFunctions} from "../../../app/servercommunications/user-data-server-functions";
-import { UserSharedDetails } from "../../shared/user.details";
 import { XdsHeaderbarComponent } from "../../../assets/components/xds-headerbar/xds-headerbar.component";
 import { HeaderService } from "../../../services/xds-headerbar.service";
+import { User } from "../../objects/user-item";
+import { LoggedUserService } from "../user-services/logged-user.service";
 
 
 @Component({
@@ -13,7 +14,9 @@ import { HeaderService } from "../../../services/xds-headerbar.service";
 })
 export class LoginPageComponent implements OnInit {
 
-  constructor(private router: Router, private headerService: HeaderService) { }
+  loggedUser= new User();
+  constructor(private router: Router, private headerService: HeaderService,
+    public lUS:LoggedUserService) { }
 
   ngOnInit(): void 
   {
@@ -30,10 +33,9 @@ export class LoginPageComponent implements OnInit {
       res => 
       {
         if (res.status == 200) {
+          this.loggedUser.UserMap(res.user, res.user_token) 
           sessionStorage.setItem('isLogged', "true");
-          sessionStorage.setItem('userID', res.user_id);
-          sessionStorage.setItem('userFirstName', res.first_name);
-          sessionStorage.setItem('userLastName', res.last_name);
+          sessionStorage.setItem('userID', res.user.id);
           sessionStorage.setItem('user_token', res.user_token)
           this.router.navigateByUrl('/userprofile');
         } 
@@ -43,6 +45,10 @@ export class LoginPageComponent implements OnInit {
         }
         
       }
-    );
+    )
+    .then(()=>{
+      this.lUS.SetLoggedUser(this.loggedUser)
+    }
+    )
   }
 }

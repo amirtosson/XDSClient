@@ -77,7 +77,6 @@ export class UserDataServerFunctions {
     );
     
     const res = await response.json();
-    console.log(res);
     return res;
   }
 

@@ -1,0 +1,27 @@
+<p *ngIf="savedDatasets.length < 1">No Saved Datasets Found</p>
+
+
+
+<table *ngIf="savedDatasets.length > 0" >
+    <tr>
+      <th>Name</th>
+      <th>Size</th>
+      <th>Equation</th>
+      <th>Factor</th>
+      <th>Date</th>
+      <th> </th>
+    </tr>
+    <tr *ngFor='let dataset of savedDatasets; let i=index;' class="table-row">
+        <td>{{dataset.name}} </td>
+        <td>64</td>
+        <td>y = {{dataset.constant}} + {{dataset.beta}}  e <sup>({{dataset.gamma}}*t)</sup></td>
+        <td>{{dataset.noiseFactor}}</td>
+        <td>{{dataset.date}}</td>
+        <td style="width: 100px;">
+            <i [ngClass]="dataset.inUse? 'disabled':''" id="icon" class="function-button-small material-icons" (click)="UseDataset(dataset, dataset.inUse = true)" >arrow_forward</i>
+            <i id="icon" class="function-button-small material-icons" (click)="DeleteDataset(dataset.DOI)">delete</i>
+        </td>
+    </tr>
+  </table>
+
+

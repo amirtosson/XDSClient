@@ -10,4 +10,8 @@ export class OneDimSimulatedDataset {
     gamma = 0.0;
     constant = 0.0;
     noiseFactor = 0;
+    size = 0;
+    date = '';
+    DOI= '';
+    inUse = true;
 }

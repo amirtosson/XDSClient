@@ -1,7 +1,6 @@
 import { Component} from '@angular/core';
 import { XDSHeaderbarDropMenuItem } from "../assets/components/xds-headerbar/xds-headerbar-user-menu-item";
 import { XDSHeaderbarItem } from "../assets/components/xds-headerbar/xds-headerbar-item";
-import { UserSharedDetails } from "../app/shared/user.details";
 import { HeaderService } from "../services/xds-headerbar.service";
 
 @Component({

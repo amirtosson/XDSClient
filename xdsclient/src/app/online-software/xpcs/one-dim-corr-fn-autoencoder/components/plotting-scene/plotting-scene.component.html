@@ -1,8 +1,8 @@
 
 <ul>
     <li>
-        <div class="function-button" (click)="OpenPlottingSceneDetails()">
-            <i id="icon" class="material-icons" >add</i>   
+        <div class="function-button">
+            <i id="icon" class="material-icons" (click)="OpenPlottingSceneDetails()">add</i>   
         </div>
     </li>
     <li>
@@ -15,6 +15,7 @@
 <div class="scene-details" id="scene-details">
     <label for="scene-name">Scene Name</label>
     <input type="text" id="scene-name" placeholder="myscene" required>
+    <span>{{isNameAlreadyUsed?"This name is already used":""}}</span>
     <div class="function-button">
         <i id="icon" class="material-icons" (click)="ClosePlottingSceneDetails()">close</i> 
     </div>  
@@ -36,6 +37,8 @@
                 </canvas>
                 
                 <div  *ngIf="chart.isIntialized" >
+                    <input type="checkbox" id="logscale" name="logscale" value="yes" (change)="onLogScaleCheckboxChange($event)" checked>
+                    <label for="logscale"> Log Scale</label><br>
                     <ul>
                         <li>
                             <div class="function-button" >
@@ -75,8 +78,6 @@
                         <button class="main-btn" (click)="Test(chart.name)">Set</button>
                         <hr>
                     </div>
-                    <input type="checkbox" id="logscale" name="logscale" value="yes" (change)="onLogScaleCheckboxChange($event)" checked>
-                    <label for="logscale"> Log Scale</label><br>
                 </div>
                 <hr>
             </div>

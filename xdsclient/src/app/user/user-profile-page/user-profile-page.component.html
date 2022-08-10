@@ -1,24 +1,90 @@
 
   
   
-<section>
-  <div class="card mb-3 xds-profile-card" >
-    <div class="row no-gutters">
-      <div class="col-md-4">
-        <img src="https://mdbootstrap.com/img/new/standard/nature/184.webp" class="card-img" alt="...">
+<section class="col-md-12">
+  <div class="row ">
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-4 card-img">
+      <img src="../../../assets/Images/usersimages/{{this.user.userData.img_url}}">
+
+    </div>
+    <div class="col-md-4">
+      
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-4">
+      <nav class ="sub-nav">
+        <ul class ="nav ">
+          <li>
+            <a>
+              <i class="far fa-comment">
+                <span> Messages </span> 
+              </i>
+            </a>
+          </li>
+          <li>
+            <a>
+              <i class="fa fa-send">
+                <span> Invitations </span> 
+              </i> 
+            </a>
+          </li>
+          <li>
+            <a>
+              <i class="far fa-calendar-alt">
+                <span> Events </span>
+              </i>   
+            </a>
+          </li>
+          <li>
+            <a >
+              <i class="fa fa-gear">	
+                <span> Account Setting </span> 
+              </i> 
+            </a>
+          </li>
+        </ul>
+        </nav>
+    </div>
+    <div class="col-md-4 xds-profile-card">
+      <h5 class="card-title">{{this.user.userData.firstname}} {{this.user.userData.lastname}}</h5>
+      <i class="fas fa-user-tie">
+        <span class="card-text">
+          {{this.user.userData.position}}
+        </span>
+      </i>
+      <br>
+      <i class='fas fa-building'>
+        <span class="card-text">
+          {{this.user.userData.affiliation}}
+        </span>
+      </i>
+      <br>
+      <i class='fa fa-group'>
+        <span class="card-text">
+          {{this.user.userData.group}}
+        </span>
+      </i>
+      <br>
+
+      <div class="row tags-section" >
+        <span class="tags-item" *ngFor="let topic of this.user.userData.topics" > {{topic}}  </span>
       </div>
-      <div class="col-md-8">
-        <div class="card-body">
-          <h5 class="card-title">{{fn}} {{ln}}</h5>
-          <p class="card-text"></p>
-        </div>
+    </div>
+  
+    <div class="col-md-4">
+      <div routerLink="/userdashboard" class="go-to-btn">
+        <i class="material-icons">dashboard</i>
+        <br>
+        Your Dashboard
       </div>
     </div>
   </div>
 </section>
-<section>
-  <a  href="userdashboard" class="main-btn">Go to your dashboard</a>
-</section>
+
 
 <section class="user-tabs">
   <ul class="nav nav-tabs xds-tab-goupe" (click)="TabItemClicked($event)">
@@ -26,13 +92,16 @@
       <a class="nav-link" id="tab1">Recent activities</a>
     </li>
     <li class="nav-item" id="tab2m">
-      <a class="nav-link" id="tab2">Datasets by you</a>
+      <a class="nav-link" id="tab2">Your Datasets</a>
     </li>
     <li class="nav-item" id="tab3m" >
-      <a class="nav-link" id="tab3" >Datasets you followed</a>
+      <a class="nav-link" id="tab3" >Favorite Datasets</a>
     </li>
-    <li class="nav-item" id="tab4m">
-      <a class="nav-link" id="tab4">Appointments </a>
+    <li class="nav-item" id="tab5m">
+      <a class="nav-link" id="tab5">Publications </a>
+    </li>
+    <li class="nav-item" id="tab6m">
+      <a class="nav-link" id="tab6">Collaborators </a>
     </li>
   </ul>
 

@@ -15,19 +15,19 @@
 }
 .brand_logo_container {
     position: absolute;
-    height: 70px;
+    height: 75px;
     width: 170px;
     top: 20px;
+    
     border-radius: 5%;
-    background: var(--main-color);
     padding: 2px;
     text-align: center;
 }
 .brand_logo {
     height: 100%;
     width: 100%;
-    border-radius: 5%;
-    border: 2px solid white;
+    padding: 5px;
+    border: 2px solid var(--main-color-low);
 }
 .form_container {
     margin-top: 100px;

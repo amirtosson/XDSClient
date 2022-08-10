@@ -18,7 +18,7 @@ export class PlottingSceneComponent implements OnInit {
 
   newColor:string = '';
   backGroundColor:string = '';
-
+  isNameAlreadyUsed = false;
   constructor(private pSS : PlottingScenesService) 
   { 
     Chart.register(LogarithmicScale);
@@ -68,6 +68,13 @@ export class PlottingSceneComponent implements OnInit {
     var scene = new PlottingSceneItem()
     var inp = document.getElementById("scene-name") as HTMLInputElement;
     scene.name = inp.value;
+    for (let index = 0; index < this.ChartsScenes.length; index++) {
+      this.isNameAlreadyUsed = scene.name == this.ChartsScenes[index].name
+      if(this.isNameAlreadyUsed)break
+    }
+
+    if(this.isNameAlreadyUsed)return;
+    
     this.ChartsScenes.push(scene)
     this.pSS.AddScene(scene.name)
     this.ClosePlottingSceneDetails()
@@ -124,7 +131,7 @@ export class PlottingSceneComponent implements OnInit {
 
 
     if (chart.isIntialized) {
-      if(chartConfig.data.datasets.length < 3){
+      if((chartConfig.data.datasets.length % 3)!= 0){
         if(Y[2].length>0)chartConfig.data.datasets.push(d_denoised)
         this.Charts[foundInd].chart.update()
       }

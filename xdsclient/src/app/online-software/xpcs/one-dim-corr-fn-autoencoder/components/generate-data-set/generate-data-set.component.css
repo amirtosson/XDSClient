@@ -53,6 +53,9 @@
     z-index: 1000000;
 }
 
+.form-input span{
+    color: red;
+}
 .new-data-button{
     height: 50px;
     width: 50px;
@@ -81,6 +84,7 @@
 }
 
 .data-content {
+    margin-top: 30px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -129,19 +133,19 @@
     margin:10px;
 }
 
-.dataset-card i{
+.dataset-card i:not(#data-icon){
     font-size: 2.5em;
     margin:10px;
     background-color: var(--main-color-low);
     width: 50px; 
     height: 50px;
-    transition: 0.7s ease;
+    transition: 0.5s ease;
     padding:4px;  
     border-radius: 10px;
     box-shadow: 0 4px 4px var(--main-color);   
 }
 
-.dataset-card i:hover{
+.dataset-card i:hover:not(#data-icon){
     transform: scale(1.1);
     cursor: pointer;
 }
@@ -149,21 +153,21 @@
 .icon-btn .tooltiptext {
     visibility: hidden;
     width: auto;
-    font-size: 0.6em;
-    background-color: black;
+    font-size: 16px;
+    background-color: var(--main-color);
     color: #fff;
     text-align: center;
     border-radius: 6px;
     margin-left: 3px;
-    padding: 5px 0;
+    padding: 5px;
     position: absolute;
     z-index: 1;
-    transition: 0.7s ease;
+    transition: 0.1s ease;
   }
   
   .icon-btn:hover .tooltiptext {
     visibility: visible;
-    animation: fadeIn 1s;
+    animation: fadeIn 0.5s;
   }
 
   .tags{
@@ -243,3 +247,18 @@
     border: none;
     opacity: 0.4;
 }
+
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    margin-left: 40%;
+    background-color: #fff;
+    padding: 5px;
+  }
+  
+  li {
+    float:left;
+  }

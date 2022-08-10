@@ -5,6 +5,8 @@
     --main-color-low: #7894e0;
     --main-gradient: linear-gradient(to bottom right,#dcd7d7, rgb(255, 255, 255));
     --secondary-color: #f0f0f0;
+    --shadow-color: #c5d3e7;
+    --hover-color-gray: #dbd8d8;
 }
 
 .main-btn:hover {
@@ -52,3 +54,38 @@
     transform: scale(1.2);
   }
 
+  .function-button-small{
+    padding: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--main-color-low);
+    transition: ease 0.5s;
+    margin: 5px;
+  }
+  .function-button-small:hover{
+    cursor: pointer;
+    transform: scale(1.2);
+  }
+
+
+
+  .loader {
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: auto;
+    height: auto;
+    animation: spin 2s linear infinite; 
+    visibility: hidden;
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  .disabled {
+    pointer-events: none;
+    opacity: 0.4;
+}

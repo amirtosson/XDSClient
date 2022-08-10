@@ -54,10 +54,7 @@
       <label for="">Radiation Facility * </label>
       <input type="text" class="form-control" required="required" pattern="[A-Za-z0-9]{1,20}" placeholder="DESY">
     </div>
-    <div class="form-group">
-      <label for="">Experiment Date * </label>
-      <input type="date" class="form-control" required="required" pattern="[A-Za-z0-9]{1,20}" placeholder="01.01.1900">
-    </div>
+
     <div class="form-group">
       <label for="">Sample Discription * </label>
       <input type="text" class="form-control" required="required" pattern="[A-Za-z0-9]{1,20}" placeholder="SiO4 solution with H2O ">
@@ -66,9 +63,14 @@
       <label for="">Notes </label>
       <input type="text" class="form-control"  placeholder="notes">
     </div>
+    <div class="form-group">
+      <label for="">Experiment Date * </label>
+      <input type="date" class="form-control" required="required" pattern="[A-Za-z0-9]{1,20}" placeholder="01.01.1900">
+    </div>
     <div style="text-align: center">
       <button type="submit" class="main-btn" (click)="DataDetailsAreReady()"> Next</button>
     </div>
+
   </form>
 
 </section>

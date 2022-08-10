@@ -4,6 +4,7 @@ import { GenerateDataSetComponent } from "./components/generate-data-set/generat
 import { PlottingSceneComponent } from "./components/plotting-scene/plotting-scene.component";
 import { SimulatedDatasetService } from "./services/simulated-dataset.service";
 import { PlottingScenesService } from "./services/plotting-scenes.service";
+import { OneDimSimulatedDataset } from "./objects/one-dim-simulated-dataset";
 
 @Component({
   selector: 'app-one-dim-corr-fn-autoencoder',
@@ -20,7 +21,9 @@ export class OneDimCorrFnAutoencoderComponent implements OnInit {
   details = {
     dginfo:"To simulate 1D correlation function data and add noise.",
     chartsinfo:"To plot the generated datasets.",
-    tablesinfo:"Information about generated datasets."
+    tablesinfo:"Information about generated datasets.",
+    saveddatasetsinfo:"Your saved datasets.",
+    statisticsinfo:"Statistical information about datasets.",
   }
 
   constructor(private datasetService:SimulatedDatasetService, 
@@ -29,16 +32,17 @@ export class OneDimCorrFnAutoencoderComponent implements OnInit {
 
   ngOnInit(): void { 
     this.datasetService.requiredToBePloted.subscribe(datasetObj =>{
-      this.PlotData(datasetObj.datasetID,datasetObj.sceneID)
+      this.PlotData(datasetObj.dataset,datasetObj.sceneID)
     });
   }
 
-  PlotData(datasetID = 0, sceneID = ''){
-    this._pS?.PlotData(
-      this._dG?.SimDatasets[datasetID-1].time!, 
-      [this._dG?.SimDatasets[datasetID-1].pure!,this._dG?.SimDatasets[datasetID-1].noisy!,this._dG?.SimDatasets[datasetID-1].denoised!],
+  PlotData(dataset: OneDimSimulatedDataset, sceneID = ''){
+
+  this._pS?.PlotData(
+    dataset.time!, 
+       [dataset.pure!,dataset.noisy!,dataset.denoised!],
       sceneID!,
-      this._dG?.SimDatasets[datasetID-1].name!)
+      dataset.name!)
     
   }
 

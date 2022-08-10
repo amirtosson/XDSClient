@@ -47,7 +47,7 @@ import { OnlineSoftwarePageComponent } from "../assets/components/online-softwar
 // Online-Software components 
 import { GenerateDataSetComponent } from "./online-software/xpcs/one-dim-corr-fn-autoencoder/components/generate-data-set/generate-data-set.component";
 import { PlottingSceneComponent } from "./online-software/xpcs/one-dim-corr-fn-autoencoder/components/plotting-scene/plotting-scene.component";
-
+import { SavedDatasetsComponent } from "./online-software/xpcs/one-dim-corr-fn-autoencoder/components/saved-datasets/saved-datasets.component";
 
 @NgModule({
   declarations: [
@@ -81,7 +81,8 @@ import { PlottingSceneComponent } from "./online-software/xpcs/one-dim-corr-fn-a
     RawDataManipulationComponent,
     GenerateDataSetComponent,
     PlottingSceneComponent,
-    OnlineSoftwarePageComponent
+    OnlineSoftwarePageComponent,
+    SavedDatasetsComponent
   ],
   imports: [
     BrowserModule,

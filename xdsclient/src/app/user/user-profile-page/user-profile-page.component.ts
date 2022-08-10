@@ -5,6 +5,7 @@ import { UserSavedDatasetsComponent } from "../user-saved-datasets/user-saved-da
 import { AppComponent } from "../../app.component";
 import { XDSHeaderbarDropMenuItem } from "../../../assets/components/xds-headerbar/xds-headerbar-user-menu-item";
 import { HeaderService } from "../../../services/xds-headerbar.service";
+import { LoggedUserService } from "../user-services/logged-user.service";
 
 @Component({
   selector: 'app-user-profile-page',
@@ -17,9 +18,14 @@ export class UserProfilePageComponent implements OnInit {
   public headerBarUMItems: XDSHeaderbarDropMenuItem[] = [];
   fn = '';
   ln = '';
-  constructor(private AppComponent: AppComponent, private headerService: HeaderService) 
+  user:any;
+  constructor( 
+    private headerService: HeaderService,
+    public lUS:LoggedUserService
+    ) 
   { 
     //AppComponent.UpdateMenuItems();
+    
     
   }
   
@@ -31,6 +37,7 @@ export class UserProfilePageComponent implements OnInit {
     tab_content.style.display = "block";
     this.fn =  sessionStorage.getItem('userFirstName') as string;
     this.ln =  sessionStorage.getItem('userLastName') as string;
+    this.user = this.lUS.GetLoggedUser()
   }
 
 

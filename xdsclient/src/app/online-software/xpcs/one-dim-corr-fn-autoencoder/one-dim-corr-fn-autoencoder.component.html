@@ -1,9 +1,9 @@
 
 <div class="content-area" id="content-area">
     <aside>
-        <h5>
+        <h4>
             Auto Encoder
-        </h5>
+        </h4>
         <div class="software-thumbnail">
             <img src="../../../../assets/Images/ae.png">
         </div>
@@ -33,17 +33,6 @@
             <hr>
             <a class="nav-link">
                 <div>
-                    <i class="fa fa-table"></i>
-                    <span> Tables</span>
-                </div>
-                <label class="switch">
-                    <input id="tables" type="checkbox" checked (click)="ShowHideSection($event)">
-                    <span class="slider round"></span>
-                </label>
-            </a>
-            <hr>
-            <a class="nav-link">
-                <div>
                     <i class="fas fa-scroll"></i>
                     <span> Statistics</span>
                 </div>
@@ -53,10 +42,20 @@
                 </label>
             </a>
             <hr>
+            <a class="nav-link">
+                <div>
+                    <i class="fas fa-database"></i>
+                    <span> Saved Datasets</span>
+                </div>
+                <label class="switch">
+                    <input id="saved-datasets" type="checkbox" checked (click)="ShowHideSection($event)">
+                    <span class="slider round"></span>
+                </label>
+            </a>
+            <hr>
         </nav>
 
     </aside>
-
     <main>
         <section id="data-generator-d" class="content-section">
             <div>
@@ -73,15 +72,16 @@
             </div>
             <app-plotting-scene></app-plotting-scene>
         </section>
-
-        <section id="tables-d" class="content-section">
-            <div>
-                <h1>Tables <a id="tablesinfo" class="info-btn fa fa-info" (click)="ShowDetails($event)"></a></h1>
-            </div>
-        </section>
         
         <section id="statistics-d" class="content-section">
+            <h1>Statistics <a id="statisticsinfo" class="info-btn fa fa-info" (click)="ShowDetails($event)"></a></h1>
 
+        </section>
+
+                
+        <section id="saved-datasets-d" class="content-section">
+            <h1>Saved Simulated Datasets <a id="saveddatasetsinfo" class="info-btn fa fa-info" (click)="ShowDetails($event)"></a></h1>
+            <app-saved-datasets></app-saved-datasets>
         </section>
     </main>
 </div>

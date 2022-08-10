@@ -1,51 +1,53 @@
 
 
 <div class="content">
-    
+    <ul>
+        <li>
+            <div class="new-data-button">
+                <i id="icon" class="material-icons" (click)="OpenGenerateDataFlyingForm()">add</i>
+            </div>
+            
+        </li>
+        <li>
+            <div class="new-data-button">
+                <i id="icon" class="material-icons" (click)="RemoveAllDatasets()">delete</i>
+                
+            </div>
+        </li>
+    </ul>
     <div class="data-content"  id="main">
         <div *ngFor="let dataset of SimDatasets" class="dataset-card">
-            <i class="fa fa-bar-chart data-icon"></i>
+            <i id="data-icon" class="fa fa-bar-chart data-icon"></i>
             <h2>{{dataset.name}}</h2>
             <p>
                 y = {{dataset.constant}} + {{dataset.beta}} e <sup>({{dataset.gamma}}*t)</sup>
             </p>
             <h2>Noise factor: {{dataset.noiseFactor}}</h2>
             <h2>Size: {{dataset.pure.length}}</h2>
+            <h2>Date: {{dataset.date}}</h2>
+            <h5>{{dataset.DOI == 'notSaved'? 'Not Saved': 'Saved'}}</h5>
         <div>
             <i class="icon-btn fas fa-pen-fancy" (click)="PlotDataset(dataset.name)" >
-
+                <span class="tooltiptext" >Plot</span> 
             </i>
             <i class="icon-btn fas fa-magic" (click)="DenoiseDataset(dataset.name)">
                 <span class="tooltiptext" >Start denoising</span> 
             </i>
+            <i [ngClass]="dataset.DOI.length>15? 'disabled':''" class="icon-btn fas fa-save" (click)="SaveDataset(dataset.name)">
+                <span class="tooltiptext">Save</span> 
+            </i>
             <i class="icon-btn fas fa-trash">
-                <!-- <span class="tooltiptext">Delete</span> -->
+                <span class="tooltiptext">Delete</span> 
             </i>
         </div>
         <div id={{dataset.name}} class="current-charts" style="display: none;" >
             <h2>Choose a scene</h2>    
-            <a *ngFor="let chart of availableCharts" (click)="PlotOnScene(chart, dataset.ID)">{{chart}}</a>
+            <a *ngFor="let chart of availableCharts" (click)="PlotOnScene(chart, dataset)">{{chart}}</a>
         </div>
         <br>
-        <div class="tags">
-            <div class="scene-tag">
-                <h5> Tag Test
-                    <span class="fa fa-eye"></span>
-                </h5>
-            </div>
-        </div>
     </div>
 </div>
-<div>
-    <div class="new-data-button">
-        <i id="icon" class="material-icons" (click)="OpenGenerateDataFlyingForm()">add</i>
-        
-    </div>
-    <div class="new-data-button">
-        <i id="icon" class="material-icons" (click)="RemoveAllDatasets()">delete</i>
-        
-    </div>
-</div>
+
     <div class="flying-form container" id="flying-form">   
         <i class='form-icon far fa-file' style='font-size:60px'></i>
         <form [formGroup]="newDataForm" class="form-group">
@@ -53,10 +55,13 @@
                 <label>Dataset Title:</label>
                 <input formControlName="title" 
                 [ngClass]="(newDataForm.controls.title.touched && !newDataForm.controls.title.valid) || newDataForm.controls.title.errors?.pattern ? 'input-required' : ''"
-                value="myDataset"/>
+                value="myDataset"
+                (input)="IsNameUsed($event.target.value)"/>
                 <br>
                 <span>{{newDataForm.controls.title.touched && newDataForm.controls.title.errors?.required ?"This field is required":""}}</span>
                 <span>{{newDataForm.controls.title.errors?.pattern ?"Not Valid (no special characters or spaces)":""}}</span>
+                <span>{{nameIsUsed?"The name is used":""}}</span>
+
                 <br>
                 
                 <p class="equation">
@@ -79,12 +84,12 @@
                 <label>Dataset size:</label>
                 <input formControlName="numberOfPoints"/>
             </div>
-            <button type="submit" class="main-btn" (click)="GetDataParas()" [disabled]="!newDataForm.valid">Submit</button>
+            <button type="submit" class="main-btn" (click)="GetDataParas()" [disabled]="(!newDataForm.valid||nameIsUsed)">Submit</button>
             <button type="submit" class="main-btn" (click)="GetDataParasCancel()" >Cancel</button>
 
         </form>
       
     </div>
 </div>
-
+<div class="loader" id="loader"></div>
 <div class="disable-div" id="dis-div"></div>

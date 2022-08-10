@@ -4,6 +4,7 @@ import { ServerFunctions } from "../../server-communications/server-functions";
 import { OneDimSimulatedDataset } from "../../objects/one-dim-simulated-dataset";
 import { SimulatedDatasetService } from "../../services/simulated-dataset.service";
 import { PlottingScenesService } from "../../services/plotting-scenes.service";
+import { SavedDatasetsService } from "../../services/saved-datasets.service";
 
 @Component({
   selector: 'app-generate-data-set',
@@ -16,13 +17,13 @@ export class GenerateDataSetComponent implements OnInit {
   SimDatasets : OneDimSimulatedDataset[] = [];
   availableCharts: string[] = [];
   newDataForm : FormGroup;
-
-
+  nameIsUsed = false
   constructor
   (
     private dataService:SimulatedDatasetService,
     private pSS:PlottingScenesService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private sDS:SavedDatasetsService
   ){ 
 
    this.newDataForm =  this.formBuilder.group(
@@ -63,10 +64,34 @@ export class GenerateDataSetComponent implements OnInit {
 
   ngOnInit(): void {
     this.availableCharts = this.pSS.sceneNames
+    this.sDS.savedDatasetToBeUsed.subscribe(ds=>{
+      if (ds.DOI == undefined) return
+      ServerFunctions.GetDatasetParasByDOI(ds.DOI, sessionStorage.getItem('userID'))
+      .then(res =>{
+        ds.denoised = res.denoised
+        ds.pure = res.pure
+        ds.noisy = res.noisy
+        ds.time = res.time
+        this.SimDatasets.push(ds)
+       })
+    })
   }
 
-
+  IsNameUsed(datasetName:string){
+   
+    for (let index = 0; index < this.SimDatasets.length; index++) {
+      if (datasetName === this.SimDatasets[index].name){
+        
+        this.nameIsUsed = true;
+        return 
+      }
+      this.nameIsUsed = false;
+      
+    }
+    
+  }
   OpenGenerateDataFlyingForm(){
+    this.IsNameUsed(this.newDataForm.controls["title"].value)
     this.DisableElements(true);
   }
 
@@ -77,6 +102,10 @@ export class GenerateDataSetComponent implements OnInit {
     datasetCards.forEach(card => {
       card.remove();
     });
+  }
+
+  AddSavedDataset(name:string){
+
   }
 
   GetDataParas(){
@@ -93,12 +122,15 @@ export class GenerateDataSetComponent implements OnInit {
       ds.ID = this.SimDatasets.length + 1
       ds.pure = res.pure 
       ds.noisy = res.noisy
-      ds.time = res.time_data 
+      ds.time = res.time
+      ds.DOI = 'notSaved'
+      ds.date = this.GetTimeWithFormatAsString()
       ds.name = this.newDataForm.controls['title'].value
       ds.constant =  this.newDataForm.controls['constant'].value
       ds.gamma = this.newDataForm.controls['gamma'].value
       ds.beta = this.newDataForm.controls['beta'].value
       ds.noiseFactor = this.newDataForm.controls['noiseFactor'].value
+      ds.size = this.newDataForm.controls['numberOfPoints'].value
       this.SimDatasets.push(ds)
     })
   }
@@ -107,11 +139,17 @@ export class GenerateDataSetComponent implements OnInit {
     this.DisableElements(false);
   }
 
-  DisableElements(disable = false){
+  DisableElements(disable = false, loader = false){
     var f = document.getElementById("dis-div") as HTMLDivElement;
     f.style.visibility=  disable?"visible":"hidden"
-    f = document.getElementById("flying-form") as HTMLDivElement;
-    disable?f.classList.add("flying-form-opened"):f.classList.remove("flying-form-opened")
+    if (loader) {
+      f = document.getElementById("loader") as HTMLDivElement;
+      f.style.visibility=  disable?"visible":"hidden"
+        
+    } else {
+      f = document.getElementById("flying-form") as HTMLDivElement;
+      disable?f.classList.add("flying-form-opened"):f.classList.remove("flying-form-opened")
+    }
   }
   
   PlotDataset($elementID:string){
@@ -130,14 +168,15 @@ export class GenerateDataSetComponent implements OnInit {
     }
   } 
 
-  PlotOnScene($chartName:{target:any;}, $datasetID:{target:any;}){
+  PlotOnScene($chartName:{target:any;}, $dataset:OneDimSimulatedDataset){
     this.dataService.PlotDataset({
-       datasetID:$datasetID,
+       dataset:$dataset,
       sceneID:$chartName
      })
   }
 
   DenoiseDataset($datasetname:string){
+    this.DisableElements(true, true)
     var foundInd = -1
     for (let index = 0; index < this.SimDatasets.length; index++) {
       if (this.SimDatasets[index].name === $datasetname) {
@@ -149,6 +188,46 @@ export class GenerateDataSetComponent implements OnInit {
       this.SimDatasets[foundInd].noisy
     ).then(res => {
       this.SimDatasets[foundInd].denoised = res.denoised
-    })
+    }).then(r =>{      
+      this.DisableElements(false, true)
+    }
+    )
+
   }
+
+  SaveDataset(datasetName:string){
+   this.DisableElements(true, true)
+    var dS = this.SimDatasets.find((obj)=>{
+      return obj.name = datasetName
+    })
+    sessionStorage.getItem('userID')
+    ServerFunctions.SaveDataset(JSON.stringify(dS), sessionStorage.getItem('userID'))
+    .then( res => {
+      this.DisableElements(false, true)
+      dS!.DOI = res.DOI
+    })
+    .then(()=>{
+      this.sDS.newDataSaved(true);
+    })
+    
+  }
+
+  GetTimeWithFormatAsString(){
+    var date = new Date();
+    var dateFormated =
+      [
+        date.getFullYear(),
+        (date.getMonth() + 1).toString().padStart(2, '0'),
+        (date.getDate()).toString().padStart(2, '0'),
+      ].join('.') +
+      ' ' +
+      [
+        (date.getHours()).toString().padStart(2, '0'),
+        (date.getMinutes()).toString().padStart(2, '0')
+      ].join(':')
+      return dateFormated
+  }
+  
+
+
 }

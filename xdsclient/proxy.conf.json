@@ -3,5 +3,39 @@
     "target": "http://localhost:5000",
     "secure": false,
     "changeOrigin": true
+  },
+
+  "/api/python/getsaveddatasets": {
+    "target": "http://localhost:5000",
+    "secure": false,
+    "changeOrigin": true
+  },
+
+  "/api/python/getdatasetsparasbydoi": {
+    "target": "http://localhost:5000",
+    "secure": false,
+    "changeOrigin": true
+  },
+
+  "/api/python/denoisedataset": {
+    "target": "http://localhost:5000",
+    "secure": false,
+    "changeOrigin": true
+  },
+
+  "/api/python/savedataset": {
+    "target": "http://localhost:5000",
+    "secure": false,
+    "changeOrigin": true
+  },
+
+  "/api/python/deletesaveddatasetbydoi": {
+    "target": "http://localhost:5000",
+    "secure": false,
+    "changeOrigin": true
   }
+
+
+
+  
 }

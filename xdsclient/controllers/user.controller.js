@@ -5,7 +5,9 @@ const path = require('path');
 const fs = require('fs');
 const token = require('../config/jwtHelper')
 const pythonServer = require('../python_server_controllers/python-main.controller')
+var mongodb = require('mongodb').MongoClient;
 
+var mongoUrl = "mongodb://localhost:27017/";
 
 
 var db_config = {
@@ -107,16 +109,36 @@ function Login (req,res)
                 }
             );
         } else {
-            res.json
-            (
-                { 
-                    "status": 200,
-                    "user_id": result[0].id,
-                    "first_name": result[0].firstname,
-                    "last_name":result[0].lastname,
-                    "user_token": token.GenerateNewToken(req.body)           
-                }
-            );
+            if(result[0].id>0){
+                mongodb.connect(mongoUrl, function(err, db){
+                    if (err) console.log(err);
+                    var usersdb = db.db("usersDB");
+                    var query = {"id":result[0].id};
+                    usersdb.collection("users").find(query).toArray(
+                        function(err, userData){
+                            if (err) console.log(err);;
+                            db.close();
+                            res.json(
+                                {
+                                    "status": 200,
+                                    "user_token": token.GenerateNewToken(req.body),
+                                    "user": userData[0]
+                                } 
+                            )
+                        })
+                })
+            }
+
+            // res.json
+            // (
+            //     { 
+            //         "status": 200,
+            //         "user_id": result[0].id,
+            //         "first_name": result[0].firstname,
+            //         "last_name":result[0].lastname,
+            //         "user_token": token.GenerateNewToken(req.body)           
+            //     }
+            // );
         }
     });
     } catch (error) { 
